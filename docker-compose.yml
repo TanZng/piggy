@@ -1,0 +1,14 @@
+version: '3.8'
+volumes:
+  piggy-postgresql:
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: piggy
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - piggy-postgresql:/var/lib/postgresql/data
