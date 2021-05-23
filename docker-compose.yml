@@ -8,6 +8,7 @@ services:
     environment:
       POSTGRES_USER: piggy
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: piggy
     ports:
       - 5432:5432
     volumes:
