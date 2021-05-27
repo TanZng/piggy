@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Financial Objects Incomes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Currency</th>
+      <th>Category</th>
+      <th>Wallet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @financial_objects_incomes.each do |financial_objects_income| %>
+      <tr>
+        <td><%= financial_objects_income.description %></td>
+        <td><%= financial_objects_income.currency %></td>
+        <td><%= financial_objects_income.category_id %></td>
+        <td><%= financial_objects_income.wallet_id %></td>
+        <td><%= link_to 'Show', financial_objects_income %></td>
+        <td><%= link_to 'Edit', edit_financial_objects_income_path(financial_objects_income) %></td>
+        <td><%= link_to 'Destroy', financial_objects_income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Financial Objects Income', new_financial_objects_income_path %>

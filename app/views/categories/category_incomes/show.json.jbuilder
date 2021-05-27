@@ -1,0 +1,1 @@
+json.partial! "categories_category_incomes/categories_category_income", categories_category_income: @categories_category_income

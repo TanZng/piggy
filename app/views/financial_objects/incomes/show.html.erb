@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @financial_objects_income.description %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @financial_objects_income.currency %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @financial_objects_income.category_id %>
+</p>
+
+<p>
+  <strong>Wallet:</strong>
+  <%= @financial_objects_income.wallet_id %>
+</p>
+
+<%= link_to 'Edit', edit_financial_objects_income_path(@financial_objects_income) %> |
+<%= link_to 'Back', financial_objects_incomes_path %>

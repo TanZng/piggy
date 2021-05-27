@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Financial Objects Payment Methods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Wallet</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @financial_objects_payment_methods.each do |financial_objects_payment_method| %>
+      <tr>
+        <td><%= financial_objects_payment_method.title %></td>
+        <td><%= financial_objects_payment_method.description %></td>
+        <td><%= financial_objects_payment_method.wallet_id %></td>
+        <td><%= financial_objects_payment_method.date %></td>
+        <td><%= link_to 'Show', financial_objects_payment_method %></td>
+        <td><%= link_to 'Edit', edit_financial_objects_payment_method_path(financial_objects_payment_method) %></td>
+        <td><%= link_to 'Destroy', financial_objects_payment_method, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Financial Objects Payment Method', new_financial_objects_payment_method_path %>

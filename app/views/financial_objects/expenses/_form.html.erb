@@ -1,0 +1,47 @@
+<%= form_with(model: financial_objects_expense) do |form| %>
+  <% if financial_objects_expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(financial_objects_expense.errors.count, "error") %> prohibited this financial_objects_expense from being saved:</h2>
+
+      <ul>
+        <% financial_objects_expense.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency %>
+    <%= form.text_field :currency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.text_field :category_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payment_method_id %>
+    <%= form.text_field :payment_method_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wallet_id %>
+    <%= form.text_field :wallet_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

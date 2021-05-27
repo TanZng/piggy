@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users Wallets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_wallets.each do |users_wallet| %>
+      <tr>
+        <td><%= users_wallet.name %></td>
+        <td><%= link_to 'Show', users_wallet %></td>
+        <td><%= link_to 'Edit', edit_users_wallet_path(users_wallet) %></td>
+        <td><%= link_to 'Destroy', users_wallet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Users Wallet', new_users_wallet_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @categories_category_expense.title %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @categories_category_expense.color %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @categories_category_expense.icon %>
+</p>
+
+<p>
+  <strong>Wallet:</strong>
+  <%= @categories_category_expense.wallet_id %>
+</p>
+
+<%= link_to 'Edit', edit_categories_category_expense_path(@categories_category_expense) %> |
+<%= link_to 'Back', categories_category_expenses_path %>

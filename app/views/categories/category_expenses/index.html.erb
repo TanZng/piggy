@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories Category Expenses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Color</th>
+      <th>Icon</th>
+      <th>Wallet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories_category_expenses.each do |categories_category_expense| %>
+      <tr>
+        <td><%= categories_category_expense.title %></td>
+        <td><%= categories_category_expense.color %></td>
+        <td><%= categories_category_expense.icon %></td>
+        <td><%= categories_category_expense.wallet_id %></td>
+        <td><%= link_to 'Show', categories_category_expense %></td>
+        <td><%= link_to 'Edit', edit_categories_category_expense_path(categories_category_expense) %></td>
+        <td><%= link_to 'Destroy', categories_category_expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Categories Category Expense', new_categories_category_expense_path %>
