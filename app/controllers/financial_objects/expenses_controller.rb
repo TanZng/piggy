@@ -1,5 +1,6 @@
 class FinancialObjects::ExpensesController < ApplicationController
   before_action :set_financial_objects_expense, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /financial_objects/expenses or /financial_objects/expenses.json
   def index

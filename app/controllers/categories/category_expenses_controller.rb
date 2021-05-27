@@ -1,5 +1,6 @@
 class Categories::CategoryExpensesController < ApplicationController
   before_action :set_categories_category_expense, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /categories/category_expenses or /categories/category_expenses.json
   def index

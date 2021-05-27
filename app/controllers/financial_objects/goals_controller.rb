@@ -1,5 +1,6 @@
 class FinancialObjects::GoalsController < ApplicationController
   before_action :set_financial_objects_goal, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /financial_objects/goals or /financial_objects/goals.json
   def index

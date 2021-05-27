@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, class_name: 'Users::User'
+  # devise_for :users, class_name: 'Users::User'
+  devise_for :users, class_name: 'Users::User', path: '',
+                     path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' } ,
+                     controllers: {
+                       sessions: 'users/sessions',
+                       registrations: 'users/registrations'
+                     }
+
   namespace :financial_objects, path: '' do
     resources :incomes, :payment_methods, :expenses, :goals
   end
+
   namespace :categories do
     resources :category_expenses, path: 'expenses'
     resources :category_incomes, path: 'incomes'

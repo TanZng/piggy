@@ -1,5 +1,6 @@
 class FinancialObjects::IncomesController < ApplicationController
   before_action :set_financial_objects_income, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /financial_objects/incomes or /financial_objects/incomes.json
   def index

@@ -1,5 +1,6 @@
 class FinancialObjects::PaymentMethodsController < ApplicationController
   before_action :set_financial_objects_payment_method, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /financial_objects/payment_methods or /financial_objects/payment_methods.json
   def index
