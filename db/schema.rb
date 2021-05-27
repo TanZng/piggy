@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_032512) do
+ActiveRecord::Schema.define(version: 2021_05_27_033331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 2021_05_27_032512) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_users_wallets_on_user_id"
   end
 
   add_foreign_key "categories_category_expenses", "users_wallets", column: "wallet_id"
@@ -110,4 +112,5 @@ ActiveRecord::Schema.define(version: 2021_05_27_032512) do
   add_foreign_key "financial_objects_incomes", "users_wallets", column: "wallet_id"
   add_foreign_key "financial_objects_payment_methods", "users_wallets", column: "wallet_id"
   add_foreign_key "users_users", "users_wallets", column: "wallet_id"
+  add_foreign_key "users_wallets", "users_users", column: "user_id"
 end
