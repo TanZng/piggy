@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Users::Wallet < ApplicationRecord
+  has_one :user
 end

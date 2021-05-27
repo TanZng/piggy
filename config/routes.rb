@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, class_name: 'Users::User'
   namespace :financial_objects, path: '' do
     resources :incomes, :payment_methods, :expenses, :goals
   end
@@ -21,5 +22,6 @@ Rails.application.routes.draw do
   # namespace :financial_objects do
   #   resources :expenses
   # end
+  root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

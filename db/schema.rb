@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_022244) do
+ActiveRecord::Schema.define(version: 2021_05_27_032512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,20 @@ ActiveRecord::Schema.define(version: 2021_05_27_022244) do
     t.index ["wallet_id"], name: "index_financial_objects_payment_methods_on_wallet_id"
   end
 
+  create_table "users_users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.bigint "wallet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_users_on_reset_password_token", unique: true
+    t.index ["wallet_id"], name: "index_users_users_on_wallet_id"
+  end
+
   create_table "users_wallets", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -95,4 +109,5 @@ ActiveRecord::Schema.define(version: 2021_05_27_022244) do
   add_foreign_key "financial_objects_incomes", "categories_category_incomes", column: "category_id"
   add_foreign_key "financial_objects_incomes", "users_wallets", column: "wallet_id"
   add_foreign_key "financial_objects_payment_methods", "users_wallets", column: "wallet_id"
+  add_foreign_key "users_users", "users_wallets", column: "wallet_id"
 end
