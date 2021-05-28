@@ -23,7 +23,7 @@ class Categories::CategoryIncomesController < ApplicationController
   # POST /categories/category_incomes or /categories/category_incomes.json
   def create
     @categories_category_income = Categories::CategoryIncome.new(categories_category_income_params)
-
+    puts(@current_user)
     respond_to do |format|
       if @categories_category_income.save
         format.html { redirect_to @categories_category_income, notice: "Category income was successfully created." }
