@@ -18,6 +18,8 @@
 #
 #  fk_rails_...  (wallet_id => users_wallets.id)
 #
-class FinancialObjects::PaymentMethod < ApplicationRecord
-  belongs_to :wallet
+module FinancialObjects
+  class PaymentMethod < ApplicationRecord
+    belongs_to :wallet, class_name: 'Users::Wallet'
+  end
 end

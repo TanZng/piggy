@@ -18,6 +18,8 @@
 #
 #  fk_rails_...  (wallet_id => users_wallets.id)
 #
-class FinancialObjects::Goal < ApplicationRecord
-  belongs_to :wallet
+module FinancialObjects
+  class Goal < ApplicationRecord
+    belongs_to :wallet
+  end
 end
