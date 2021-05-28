@@ -7,6 +7,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Users::Wallet < ApplicationRecord
-  has_one :user
+module Users
+  class Wallet < ApplicationRecord
+    has_one :user, class_name: 'Users::User'
+  end
 end
