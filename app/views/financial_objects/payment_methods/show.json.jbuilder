@@ -1,0 +1,1 @@
+json.partial! "financial_objects_payment_methods/financial_objects_payment_method", financial_objects_payment_method: @financial_objects_payment_method

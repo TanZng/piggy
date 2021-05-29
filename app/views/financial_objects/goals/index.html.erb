@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Financial Objects Goals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Currency</th>
+      <th>Due date</th>
+      <th>Wallet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @financial_objects_goals.each do |financial_objects_goal| %>
+      <tr>
+        <td><%= financial_objects_goal.description %></td>
+        <td><%= financial_objects_goal.currency %></td>
+        <td><%= financial_objects_goal.due_date %></td>
+        <td><%= financial_objects_goal.wallet_id %></td>
+        <td><%= link_to 'Show', financial_objects_goal %></td>
+        <td><%= link_to 'Edit', edit_financial_objects_goal_path(financial_objects_goal) %></td>
+        <td><%= link_to 'Destroy', financial_objects_goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Financial Objects Goal', new_financial_objects_goal_path %>

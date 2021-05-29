@@ -1,0 +1,2 @@
+module FinancialObjects::GoalsHelper
+end

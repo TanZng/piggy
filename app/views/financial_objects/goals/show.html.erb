@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @financial_objects_goal.description %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @financial_objects_goal.currency %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @financial_objects_goal.due_date %>
+</p>
+
+<p>
+  <strong>Wallet:</strong>
+  <%= @financial_objects_goal.wallet_id %>
+</p>
+
+<%= link_to 'Edit', edit_financial_objects_goal_path(@financial_objects_goal) %> |
+<%= link_to 'Back', financial_objects_goals_path %>

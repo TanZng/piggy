@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories Category Incomes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Color</th>
+      <th>Icon</th>
+      <th>Wallet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories_category_incomes.each do |categories_category_income| %>
+      <tr>
+        <td><%= categories_category_income.title %></td>
+        <td><%= categories_category_income.color %></td>
+        <td><%= categories_category_income.icon %></td>
+        <td><%= categories_category_income.wallet_id %></td>
+        <td><%= link_to 'Show', categories_category_income %></td>
+        <td><%= link_to 'Edit', edit_categories_category_income_path(categories_category_income) %></td>
+        <td><%= link_to 'Destroy', categories_category_income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Categories Category Income', new_categories_category_income_path %>

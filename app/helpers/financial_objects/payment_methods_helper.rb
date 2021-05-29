@@ -1,0 +1,2 @@
+module FinancialObjects::PaymentMethodsHelper
+end

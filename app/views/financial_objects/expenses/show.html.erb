@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @financial_objects_expense.description %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @financial_objects_expense.currency %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @financial_objects_expense.category_id %>
+</p>
+
+<p>
+  <strong>Payment method:</strong>
+  <%= @financial_objects_expense.payment_method_id %>
+</p>
+
+<p>
+  <strong>Wallet:</strong>
+  <%= @financial_objects_expense.wallet_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @financial_objects_expense.date %>
+</p>
+
+<%= link_to 'Edit', edit_financial_objects_expense_path(@financial_objects_expense) %> |
+<%= link_to 'Back', financial_objects_expenses_path %>

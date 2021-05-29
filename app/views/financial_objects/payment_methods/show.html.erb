@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @financial_objects_payment_method.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @financial_objects_payment_method.description %>
+</p>
+
+<p>
+  <strong>Wallet:</strong>
+  <%= @financial_objects_payment_method.wallet_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @financial_objects_payment_method.date %>
+</p>
+
+<%= link_to 'Edit', edit_financial_objects_payment_method_path(@financial_objects_payment_method) %> |
+<%= link_to 'Back', financial_objects_payment_methods_path %>

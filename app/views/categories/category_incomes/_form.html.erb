@@ -1,0 +1,37 @@
+<%= form_with(model: categories_category_income) do |form| %>
+  <% if categories_category_income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(categories_category_income.errors.count, "error") %> prohibited this categories_category_income from being saved:</h2>
+
+      <ul>
+        <% categories_category_income.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.color_field :color, value: '#FFFFFF' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :icon %>
+    <%= form.text_field :icon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wallet_id %>
+    <%= form.text_field :wallet_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

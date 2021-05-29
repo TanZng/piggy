@@ -1,0 +1,2 @@
+module FinancialObjects::IncomesHelper
+end
