@@ -21,7 +21,7 @@
 #  fk_rails_...  (wallet_id => users_wallets.id)
 #
 module FinancialObjects
-  class Income < ApplicationRecord
+  class Income < FinancialObject
     belongs_to :category, class_name: 'Categories::CategoryIncome'
     belongs_to :wallet, class_name: 'Users::Wallet'
   end
