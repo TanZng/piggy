@@ -15,7 +15,6 @@ module FinancialObjects
       category.wallet = current_user.wallet_id
       if category.valid?
         category.save
-        puts 'Valid Category Income'
       end
       category
     end
