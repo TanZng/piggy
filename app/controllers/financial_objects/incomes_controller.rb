@@ -23,7 +23,8 @@ class FinancialObjects::IncomesController < ApplicationController
   # POST /financial_objects/incomes or /financial_objects/incomes.json
   def create
     # @financial_objects_income = FinancialObjects::Income.new(financial_objects_income_params)
-    @financial_objects_income = FinancialObjects::IncomesFactory.new.create_financial_object(financial_objects_income_params, current_user)
+    manager = FinancialObjects::IncomeManager.new
+    @financial_objects_income = manager.create(financial_objects_income_params, current_user)
 
     respond_to do |format|
       if @financial_objects_income.valid?
