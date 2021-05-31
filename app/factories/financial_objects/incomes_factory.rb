@@ -2,12 +2,10 @@ module FinancialObjects
   class IncomesFactory < AbstractFinancialFactory
     include Devise
 
-    def create_financial_object(object_params, user)
+    def create_financial_object(object_params)
       income = FinancialObjects::Income.new(object_params)
-      income.wallet_id = user.wallet_id
       if income.valid?
         income.save
-        puts 'Valid Income'
       end
       income
     end

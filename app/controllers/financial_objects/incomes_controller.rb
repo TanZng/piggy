@@ -68,6 +68,6 @@ class FinancialObjects::IncomesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def financial_objects_income_params
-    params.require(:financial_objects_income).permit(:description, :currency, :category_id, :wallet_id)
+    params.require(:financial_objects_income).permit(:description, :currency, :category_id)
   end
 end
