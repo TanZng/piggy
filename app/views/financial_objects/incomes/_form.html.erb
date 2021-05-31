@@ -23,12 +23,7 @@
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :wallet_id %>
-    <%= form.text_field :wallet_id %>
+    <%= form.select :category_id, Categories::CategoryIncome.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
   </div>
 
   <div class="actions">

@@ -9,6 +9,6 @@
 #
 module Users
   class Wallet < ApplicationRecord
-    has_one :user, class_name: 'Users::User'
+    belongs_to :user, class_name: 'Users::User', foreign_key: 'user_id'
   end
 end
