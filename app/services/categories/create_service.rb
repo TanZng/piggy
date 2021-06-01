@@ -9,7 +9,7 @@ module Categories
 
     def call
       @category_params[:wallet_id] = @user.wallet_id
-      factory_class = "FinancialObjects::#{@type}sFactory".split('::').inject(Object) { |obj, text| obj.const_get text }
+      factory_class = "FinancialObjects::#{@type}sFactory".split('::').inject(Object) { |obj, type| obj.const_get type }
       income_factory = factory_class.new
       income_factory.create_category(@category_params)
     end
