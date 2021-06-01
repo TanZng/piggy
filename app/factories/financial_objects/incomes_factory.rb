@@ -10,9 +10,8 @@ module FinancialObjects
       income
     end
 
-    def create_category(category_params, current_user)
+    def create_category(category_params)
       category = Categories::CategoryIncome.new(category_params)
-      category.wallet = current_user.wallet_id
       if category.valid?
         category.save
       end
