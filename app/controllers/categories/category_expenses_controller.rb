@@ -22,7 +22,7 @@ class Categories::CategoryExpensesController < ApplicationController
 
   # POST /categories/category_expenses or /categories/category_expenses.json
   def create
-    manager = Categories::CategoryIncomeManager.new
+    manager = Categories::CategoryExpenseManager.new
     @categories_category_expense = manager.create(categories_category_expense_params, current_user)
 
     respond_to do |format|
