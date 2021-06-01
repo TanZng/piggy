@@ -8,8 +8,7 @@ class Categories::CategoryIncomesController < ApplicationController
   end
 
   # GET /categories/category_incomes/1 or /categories/category_incomes/1.json
-  def show
-  end
+  def show; end
 
   # GET /categories/category_incomes/new
   def new
@@ -17,13 +16,14 @@ class Categories::CategoryIncomesController < ApplicationController
   end
 
   # GET /categories/category_incomes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /categories/category_incomes or /categories/category_incomes.json
   def create
-    @categories_category_income = Categories::CategoryIncome.new(categories_category_income_params)
-    #puts(@current_user)
+    manager = Categories::CategoryIncomeManager.new
+    @categories_category_income = manager.create(categories_category_income_params, current_user)
+    #@categories_category_income = Categories::CategoryIncome.new(categories_category_income_params)
+    # puts(@current_user)
     respond_to do |format|
       if @categories_category_income.save
         format.html { redirect_to @categories_category_income, notice: "Category income was successfully created." }
@@ -58,12 +58,13 @@ class Categories::CategoryIncomesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
   def set_categories_category_income
     @categories_category_income = Categories::CategoryIncome.find(params[:id])
   end
 
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
   def categories_category_income_params
     params.require(:categories_category_income).permit(:title, :color, :icon, :wallet_id)
   end
