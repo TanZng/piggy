@@ -22,11 +22,12 @@ class Categories::CategoryExpensesController < ApplicationController
 
   # POST /categories/category_expenses or /categories/category_expenses.json
   def create
-    @categories_category_expense = Categories::CategoryExpense.new(categories_category_expense_params)
+    manager = Categories::CategoryIncomeManager.new
+    @categories_category_expense = manager.create(categories_category_expense_params, current_user)
 
     respond_to do |format|
       if @categories_category_expense.save
-        format.html { redirect_to @categories_category_expense, notice: "Category expense was successfully created." }
+        format.html { redirect_to @categories_category_expense, notice: 'Category expense was successfully created.' }
         format.json { render :show, status: :created, location: @categories_category_expense }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +40,7 @@ class Categories::CategoryExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @categories_category_expense.update(categories_category_expense_params)
-        format.html { redirect_to @categories_category_expense, notice: "Category expense was successfully updated." }
+        format.html { redirect_to @categories_category_expense, notice: 'Category expense was successfully updated.' }
         format.json { render :show, status: :ok, location: @categories_category_expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class Categories::CategoryExpensesController < ApplicationController
   def destroy
     @categories_category_expense.destroy
     respond_to do |format|
-      format.html { redirect_to categories_category_expenses_url, notice: "Category expense was successfully destroyed." }
+      format.html { redirect_to categories_category_expenses_url, notice: 'Category expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
