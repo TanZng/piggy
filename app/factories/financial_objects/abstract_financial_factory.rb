@@ -1,7 +1,7 @@
 module FinancialObjects
   class AbstractFinancialFactory
 
-    def create_financial_object(object_params)
+    def create_financial_object(params)
       raise NotImplementedError
     end
 
