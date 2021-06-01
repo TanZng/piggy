@@ -1,7 +1,5 @@
 module FinancialObjects
   class IncomesFactory < AbstractFinancialFactory
-    include Devise
-
     def create_financial_object(object_params)
       income = FinancialObjects::Income.new(object_params)
       if income.valid?
