@@ -18,6 +18,15 @@ c1 = Categories::CategoryIncome.create(title: 'Trabajo', color: '#FF9E33', icon:
 c2 = Categories::CategoryIncome.create(title: 'Beca', color: '#33BCFF', icon: 'school', wallet_id: wallet.id)
 c3 = Categories::CategoryIncome.create(title: 'Inversiones', color: '#FF5733', icon: 'rocket', wallet_id: wallet.id)
 
-FinancialObjects::Income.create(description: 'Gasto 1', currency: 12.22, category_id: c1.id, wallet_id: wallet.id)
-FinancialObjects::Income.create(description: 'Gasto 2', currency: 342.22, category_id: c2.id, wallet_id: wallet.id)
-FinancialObjects::Income.create(description: 'Gasto 3', currency: 1255.22, category_id: c3.id, wallet_id: wallet.id)
+FinancialObjects::Income.create(description: 'Ingreso 1', currency: 12.22, category_id: c1.id, wallet_id: wallet.id)
+FinancialObjects::Income.create(description: 'Ingreso 2', currency: 342.22, category_id: c2.id, wallet_id: wallet.id)
+FinancialObjects::Income.create(description: 'Ingreso 3', currency: 1255.22, category_id: c3.id, wallet_id: wallet.id)
+
+c4 = Categories::CategoryExpense.create(title: 'Mercado', color: '#FF9E33', icon: 'bag', wallet_id: wallet.id)
+c5 = Categories::CategoryExpense.create(title: 'Luz', color: '#33BCFF', icon: 'bulb', wallet_id: wallet.id)
+c6 = Categories::CategoryExpense.create(title: 'Ropa', color: '#FF5733', icon: 'shirt', wallet_id: wallet.id)
+
+FinancialObjects::Expense.create(description: 'Gasto 1', currency: 200.53, category_id: c4.id, wallet_id: wallet.id)
+FinancialObjects::Expense.create(description: 'Gasto 2', currency: 42.26, category_id: c5.id, wallet_id: wallet.id)
+FinancialObjects::Expense.create(description: 'Gasto 3', currency: 55.52, category_id: c6.id, wallet_id: wallet.id)
+

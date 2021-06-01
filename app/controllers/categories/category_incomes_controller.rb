@@ -25,7 +25,7 @@ module Categories
       @categories_category_income = manager.create(categories_category_income_params, current_user)
 
       respond_to do |format|
-        if @categories_category_income.save
+        if @categories_category_income.valid?
           format.html { redirect_to @categories_category_income, notice: 'Category income was successfully created.' }
           format.json { render :show, status: :created, location: @categories_category_income }
         else
