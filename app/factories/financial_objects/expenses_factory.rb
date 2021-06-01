@@ -1,7 +1,7 @@
 module FinancialObjects
   class ExpensesFactory < AbstractFinancialFactory
-    def create_financial_object(object_params)
-      expense = FinancialObjects::Expense.new(object_params)
+    def create_financial_object(expense_params)
+      expense = FinancialObjects::Expense.new(expense_params)
       if expense.valid?
         expense.save
       end
