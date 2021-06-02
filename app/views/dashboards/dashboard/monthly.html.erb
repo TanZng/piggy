@@ -1,0 +1,10 @@
+<h1>Dashboards::Dashboard#monthly</h1>
+<p>Find me in app/views/dashboards/dashboard/monthly.html.erb</p>
+
+<p type="month"><%= @month %>, <%= @year %></p>
+
+<%= form_with url: "/monthly", method: :get do |form| %>
+  <%= form.label :month, "Choose a month:" %>
+  <%= form.month_field :month, :value => @month_and_year%>
+  <%= form.submit "Go" %>
+<% end %>

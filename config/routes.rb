@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
+
+  namespace :dashboards, path: '' do
+    get '/monthly', to: 'dashboard#monthly'
+    get '/annual', to: 'dashboard#annual'
+  end
   # devise_for :users, class_name: 'Users::User'
   devise_for :users, class_name: 'Users::User', path: '',
-                     path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' } ,
+                     path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' },
                      controllers: {
                        sessions: 'users/sessions',
                        registrations: 'users/registrations'
@@ -30,6 +36,5 @@ Rails.application.routes.draw do
   # namespace :financial_objects do
   #   resources :expenses
   # end
-  root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

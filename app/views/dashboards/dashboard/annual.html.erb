@@ -1,0 +1,10 @@
+<h1>Dashboards::Dashboard#annual</h1>
+<p>Find me in app/views/dashboards/dashboard/annual.html.erb</p>
+<p type="month"><%= @year %></p>
+
+<%= form_with url: "/annual", method: :get do |form| %>
+  <%= form.label :year, "Choose a year:" %>
+  <%= form.select :year, (Time.now.year).downto(Time.now.year - 100).to_a, selected: @year %>
+  <%= form.submit "Go" %>
+<% end %>
+
