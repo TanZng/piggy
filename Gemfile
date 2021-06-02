@@ -27,6 +27,10 @@ gem 'devise'
 # Paginate
 gem 'pagy', '~> 4.7'
 
+# view components https://viewcomponent.org/
+gem 'view_component', require: 'view_component/engine'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

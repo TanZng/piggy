@@ -18,7 +18,9 @@
 
   <div class="field">
     <%= form.label :color %>
-    <%= form.color_field :color, value: '#FFFFFF' %>
+    <%#= form.color_field :color, value: '#FFFFFF' %>
+<!--    <span title="<%#= form.object_name %>"></span>-->
+    <%= render(ColorPicker::Component.new(klass: form.object_name, attribute_name: :color)) %>
   </div>
 
   <div class="field">

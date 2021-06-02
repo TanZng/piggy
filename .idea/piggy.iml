@@ -107,6 +107,7 @@
     <orderEntry type="library" scope="PROVIDED" name="turbolinks-source (v5.2.0, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.4, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uniform_notifier (v1.14.2, asdf: 3.0.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="view_component (v2.30.0, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.9, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.1.0, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="webpacker (v5.3.0, asdf: 3.0.0) [gem]" level="application" />
@@ -129,13 +130,16 @@
         <option value="benchmark" />
         <option value="bullet:install" />
         <option value="channel" />
+        <option value="component" />
         <option value="controller" />
         <option value="devise" />
         <option value="devise:controllers" />
         <option value="devise:install" />
         <option value="devise:views" />
+        <option value="erb:component" />
         <option value="factory_bot:model" />
         <option value="generator" />
+        <option value="haml:component" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
@@ -145,11 +149,13 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="preview:component" />
         <option value="rack_profiler:install" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
         <option value="rspec:channel" />
+        <option value="rspec:component" />
         <option value="rspec:controller" />
         <option value="rspec:feature" />
         <option value="rspec:generator" />
@@ -166,9 +172,11 @@
         <option value="rspec:view" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="slim:component" />
         <option value="system_test" />
         <option value="task" />
         <option value="test_unit:channel" />
+        <option value="test_unit:component" />
         <option value="test_unit:controller" />
         <option value="test_unit:generator" />
         <option value="test_unit:helper" />
@@ -193,13 +201,16 @@
         <option value="benchmark" />
         <option value="bullet:install" />
         <option value="channel" />
+        <option value="component" />
         <option value="controller" />
         <option value="devise" />
         <option value="devise:controllers" />
         <option value="devise:install" />
         <option value="devise:views" />
+        <option value="erb:component" />
         <option value="factory_bot:model" />
         <option value="generator" />
+        <option value="haml:component" />
         <option value="helper" />
         <option value="integration_test" />
         <option value="jbuilder" />
@@ -209,11 +220,13 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="preview:component" />
         <option value="rack_profiler:install" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
         <option value="rspec:channel" />
+        <option value="rspec:component" />
         <option value="rspec:controller" />
         <option value="rspec:feature" />
         <option value="rspec:generator" />
@@ -230,9 +243,11 @@
         <option value="rspec:view" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="slim:component" />
         <option value="system_test" />
         <option value="task" />
         <option value="test_unit:channel" />
+        <option value="test_unit:component" />
         <option value="test_unit:controller" />
         <option value="test_unit:generator" />
         <option value="test_unit:helper" />
