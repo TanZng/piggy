@@ -11,4 +11,8 @@ class ApplicationService
     "FinancialObjects::#{current_type}sFactory".split('::').inject(Object) { |obj, type| obj.const_get type }
   end
 
+  def load_category_class(current_type)
+    "Categories::Category#{current_type}".split('::').inject(Object) { |obj, type| obj.const_get type }
+  end
+
 end
