@@ -36,8 +36,10 @@ module FinancialObjects
 
     # PATCH/PUT /financial_objects/expenses/1 or /financial_objects/expenses/1.json
     def update
+      manager = FinancialObjects::ExpenseManager.new
+      updated, @financial_objects_expense = manager.update(params[:id], financial_objects_expense_params, current_user)
       respond_to do |format|
-        if @financial_objects_expense.update(financial_objects_expense_params)
+        if updated
           format.html { redirect_to @financial_objects_expense, notice: 'Expense was successfully updated.' }
           format.json { render :show, status: :ok, location: @financial_objects_expense }
         else
@@ -65,7 +67,7 @@ module FinancialObjects
 
     # Only allow a list of trusted parameters through.
     def financial_objects_expense_params
-      params.require(:financial_objects_expense).permit(:description, :currency, :category_id, :payment_method_id, :wallet_id, :date)
+      params.require(:financial_objects_expense).permit(:description, :currency, :category_id, :payment_method_id, :date)
     end
   end
 end

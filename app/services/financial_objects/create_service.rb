@@ -9,7 +9,7 @@ module FinancialObjects
 
     def call
       @object_params[:wallet_id] = @user.wallet_id
-      factory = "FinancialObjects::#{@type}sFactory".split('::').inject(Object) { |obj, type| obj.const_get type }
+      factory = load_financial_factory(@type)
       financial_factory = factory.new
       financial_factory.create_financial_object(@object_params)
     end
