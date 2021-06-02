@@ -4,7 +4,6 @@
 #
 #  id         :bigint           not null, primary key
 #  color      :string
-#  date       :date
 #  icon       :string
 #  title      :string
 #  created_at :datetime         not null
@@ -22,5 +21,6 @@
 module Categories
   class CategoryIncome < ApplicationRecord
     belongs_to :wallet, class_name: 'Users::Wallet'
+    has_many :incomes, class_name: 'FinancialObjects::Income'
   end
 end

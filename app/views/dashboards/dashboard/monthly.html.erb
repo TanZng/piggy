@@ -1,10 +1,52 @@
 <h1>Dashboards::Dashboard#monthly</h1>
 <p>Find me in app/views/dashboards/dashboard/monthly.html.erb</p>
 
-<p type="month"><%= @month %>, <%= @year %></p>
+<p type="month"><%= Date::MONTHNAMES[@month] %>, <%= @year %></p>
 
 <%= form_with url: "/monthly", method: :get do |form| %>
   <%= form.label :month, "Choose a month:" %>
   <%= form.month_field :month, :value => @month_and_year%>
   <%= form.submit "Go" %>
 <% end %>
+
+<% conditions1 = []
+   conditions1 << ["date_part('year', financial_objects_incomes.date) = '#{@year}'", "date_part('month', financial_objects_incomes.date) = '#{@month}'"]
+   conditions1 << ["financial_objects_incomes.wallet_id = #{1}"]
+   conditions1 = conditions1.map do |conds|
+     " ( #{conds.join(' AND ')} ) "
+   end.join(' AND ')
+%>
+
+<% conditions = []
+   conditions << ["date_part('year', financial_objects_expenses.date) = '#{@year}'", "date_part('month', financial_objects_expenses.date) = '#{@month}'"]
+   conditions << ["financial_objects_expenses.wallet_id = #{1}"]
+   conditions = conditions.map do |conds|
+     " ( #{conds.join(' AND ')} ) "
+   end.join(' AND ')
+%>
+
+<h3>Income <%= BigDecimal(FinancialObjects::Income.where(conditions1).sum(:currency)).to_f %></h3>
+<h3>Expense <%= BigDecimal(FinancialObjects::Expense.where(conditions).sum(:currency)).to_f %></h3>
+
+
+<% @a = FinancialObjects::Income.where(conditions1).group_by_day(:date).sum('financial_objects_incomes.currency') %>
+
+
+<% @b= FinancialObjects::Expense.where(conditions).group_by_day(:date).sum('financial_objects_expenses.currency')  %>
+<%  @data = [{:name=>"Income",  :data=> @a }, {:name=>"Expense",  :data=> @b }] %>
+<h2>Total Expenses and Incomes every day</h2>
+<%= line_chart @data %>
+
+<br>
+<br>
+
+<% @c = FinancialObjects::Income.where(conditions1).joins(:category).group('categories_category_incomes.title').sum('financial_objects_incomes.currency') %>
+
+<% @d= FinancialObjects::Expense.where(conditions).joins(:category).group('categories_category_expenses.title').sum('financial_objects_expenses.currency') %>
+
+<h2>Expenses by category</h2>
+<%= pie_chart @d  %>
+<br>
+<br>
+<h2>Incomes by category</h2>
+<%= pie_chart @c %>

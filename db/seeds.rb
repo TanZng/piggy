@@ -29,7 +29,14 @@ wallet2 = Users::Wallet.create(name: 'my wallet 2', user_id: user2.id)
 user2.wallet_id = wallet2.id
 user2.save
 
-30.times do
+require 'time'
+t1 = Date.parse('2020-01-1')
+t2 = Date.parse('2021-06-15')
+# puts rand(t1..t2)
+
+n = 5
+
+n.times do
   Categories::CategoryIncome.create(title: Faker::Company.name, color: Faker::Color.hex_color,
                                     icon: Faker::Creature::Animal.name, wallet_id: wallet1.id)
 
@@ -49,16 +56,19 @@ user2.save
                                          description: Faker::Bank.name, wallet_id: wallet2.id)
 end
 
-60.times do
+550.times do
+  prng = Random.new
   FinancialObjects::Income.create(description: Faker::Company.industry, currency: Faker::Number.decimal(l_digits: 2),
-                                  category_id: rand(1..30), wallet_id: wallet1.id)
+                                  category_id: rand(1..n), wallet_id: wallet1.id, date: prng.rand(t1..t2))
 
-  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price, category_id: rand(1..30),
-                                   wallet_id: wallet1.id, payment_method_id: rand(1..30))
+  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price,
+                                   category_id: rand(1..n), wallet_id: wallet1.id, payment_method_id: rand(1..n),
+                                   date: rand(t1..t2))
 
   FinancialObjects::Income.create(description: Faker::Company.industry, currency: Faker::Number.decimal(l_digits: 2),
-                                  category_id: rand(1..30), wallet_id: wallet2.id)
+                                  category_id: rand(1..n), wallet_id: wallet2.id, date: prng.rand(t1..t2))
 
-  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price, category_id: rand(1..30),
-                                   wallet_id: wallet2.id, payment_method_id: rand(1..30))
+  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price,
+                                   category_id: rand(1..n), wallet_id: wallet2.id, payment_method_id: rand(1..n),
+                                   date: prng.rand(t1..t2))
 end

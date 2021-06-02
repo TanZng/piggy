@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  currency    :decimal(, )
+#  date        :date
 #  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

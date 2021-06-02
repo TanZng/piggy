@@ -23,8 +23,8 @@ module Dashboards
                         else
                           params[:month]
                         end
-      @month = Date::MONTHNAMES[@month_and_year.split('-')[1].to_i]
-      @year = @month_and_year.split('-')[0]
+      @month = @month_and_year.split('-')[1].to_i
+      @year = @month_and_year.split('-')[0].to_i
     end
 
   end

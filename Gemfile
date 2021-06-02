@@ -26,6 +26,10 @@ gem 'devise'
 
 # Paginate
 gem 'pagy', '~> 4.7'
+# Charts
+gem 'chartkick', '~> 1.4'
+# group by day
+gem 'groupdate', '~> 5.2'
 
 # view components https://viewcomponent.org/
 gem 'view_component', require: 'view_component/engine'
