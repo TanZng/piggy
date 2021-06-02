@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.select :category_id, decorate(current_user).my_categories_incomes, include_blank: true %>
+    <%= form.select :category_id, decorate(current_user).my_categories_incomes %>
   </div>
 
   <div class="field">
     <%= form.label :payment_method_id %>
-    <%= form.select :payment_method_id, decorate(current_user).my_payment_methods, include_blank: true %>
+    <%= form.select :payment_method_id, decorate(current_user).my_payment_methods %>
   </div>
 
   <div class="field">

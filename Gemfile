@@ -37,6 +37,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 5.0.0'
+  # Help to kill N+1 queries and unused eager loading
+  gem 'bullet'
 end
 
 group :development do

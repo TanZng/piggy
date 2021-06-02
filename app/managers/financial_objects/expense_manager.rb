@@ -9,7 +9,7 @@ module FinancialObjects
     end
 
     def index(user)
-      FinancialObjects::IndexService.call(user, 'Expense')
+      FinancialObjects::IndexService.call(user, 'Expense', [:category, :payment_method])
     end
   end
 end

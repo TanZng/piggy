@@ -18,7 +18,7 @@
       <tr>
         <td><%= financial_objects_income.description %></td>
         <td><%= financial_objects_income.currency %></td>
-        <td><%= financial_objects_income.category_id %></td>
+        <td><%= financial_objects_income.category.title %></td>
         <td><%= financial_objects_income.wallet_id %></td>
         <td><%= link_to 'Show', financial_objects_income %></td>
         <td><%= link_to 'Edit', edit_financial_objects_income_path(financial_objects_income) %></td>
