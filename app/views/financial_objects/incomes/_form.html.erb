@@ -23,7 +23,12 @@
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.select :category_id, Categories::CategoryIncome.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
+    <%= form.select :category_id, decorate(current_user).my_categories_expenses, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
   </div>
 
   <div class="actions">
