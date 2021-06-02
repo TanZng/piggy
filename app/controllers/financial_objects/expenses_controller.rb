@@ -1,6 +1,6 @@
 module FinancialObjects
   class ExpensesController < ApplicationController
-    before_action :set_financial_objects_expense, only: %i[ show edit update destroy ]
+    before_action :set_financial_objects_expense, only: %i[show edit destroy]
     before_action :authenticate_user!
 
     # GET /financial_objects/expenses or /financial_objects/expenses.json
@@ -21,8 +21,8 @@ module FinancialObjects
 
     # POST /financial_objects/expenses or /financial_objects/expenses.json
     def create
-      manager = FinancialObjects::ExpenseManager.new
       @financial_objects_expense = manager.create(financial_objects_expense_params, current_user)
+
       respond_to do |format|
         if @financial_objects_expense.valid?
           format.html { redirect_to @financial_objects_expense, notice: 'Expense was successfully created.' }
@@ -36,8 +36,8 @@ module FinancialObjects
 
     # PATCH/PUT /financial_objects/expenses/1 or /financial_objects/expenses/1.json
     def update
-      manager = FinancialObjects::ExpenseManager.new
       updated_succeeds, @financial_objects_expense = manager.update(params[:id], financial_objects_expense_params, current_user)
+
       respond_to do |format|
         if updated_succeeds
           format.html { redirect_to @financial_objects_expense, notice: 'Expense was successfully updated.' }
@@ -59,6 +59,10 @@ module FinancialObjects
     end
 
     private
+
+    def manager
+      FinancialObjects::ExpenseManager.new
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_financial_objects_expense
