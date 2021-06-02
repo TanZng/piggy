@@ -5,7 +5,7 @@ module FinancialObjects
 
     # GET /financial_objects/expenses or /financial_objects/expenses.json
     def index
-      @financial_objects_expenses = FinancialObjects::Expense.all
+      @financial_objects_expenses = manager.index(current_user)
     end
 
     # GET /financial_objects/expenses/1 or /financial_objects/expenses/1.json

@@ -7,5 +7,9 @@ module FinancialObjects
     def update(id, expense_params, user)
       FinancialObjects::UpdateService.call(id, expense_params, user, 'Expense')
     end
+
+    def index(user)
+      FinancialObjects::IndexService.call(user, 'Expense')
+    end
   end
 end
