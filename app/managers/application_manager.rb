@@ -7,7 +7,7 @@ class ApplicationManager
     raise NotImplementedError
   end
 
-  def index(params)
+  def index(user)
     raise NotImplementedError
   end
 

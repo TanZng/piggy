@@ -71,6 +71,7 @@
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.7, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.11.3, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, asdf: 3.0.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pagy (v4.7.1, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.2.3, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v5.2.2, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.5.2, asdf: 3.0.0) [gem]" level="application" />

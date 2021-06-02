@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def decorate(object, klass = nil)
     klass ||= "#{object.class}Decorator".constantize
     decorator = klass.new(object, self)

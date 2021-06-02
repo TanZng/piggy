@@ -21,6 +21,16 @@ c3 = Categories::CategoryIncome.create(title: 'Inversiones', color: '#FF5733', i
 FinancialObjects::Income.create(description: 'Ingreso 1', currency: 12.22, category_id: c1.id, wallet_id: wallet1.id)
 FinancialObjects::Income.create(description: 'Ingreso 2', currency: 342.22, category_id: c2.id, wallet_id: wallet1.id)
 FinancialObjects::Income.create(description: 'Ingreso 3', currency: 1255.22, category_id: c3.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 4', currency: 12.22, category_id: c1.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 5', currency: 342.22, category_id: c2.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 6', currency: 1255.22, category_id: c3.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 7', currency: 12.22, category_id: c1.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 8', currency: 342.22, category_id: c2.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 9', currency: 1255.22, category_id: c3.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 10', currency: 12.22, category_id: c1.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 11', currency: 342.22, category_id: c2.id, wallet_id: wallet1.id)
+FinancialObjects::Income.create(description: 'Ingreso 12', currency: 1255.22, category_id: c3.id, wallet_id: wallet1.id)
+
 
 c4 = Categories::CategoryExpense.create(title: 'Mercado', color: '#FF9E33', icon: 'bag', wallet_id: wallet1.id)
 c5 = Categories::CategoryExpense.create(title: 'Luz', color: '#33BCFF', icon: 'bulb', wallet_id: wallet1.id)
@@ -34,6 +44,15 @@ p3 = FinancialObjects::PaymentMethod.create(title: 'Efectivo', description: 'baj
 FinancialObjects::Expense.create(description: 'Gasto 1', currency: 200.53, category_id: c4.id, wallet_id: wallet1.id, payment_method_id: p1.id)
 FinancialObjects::Expense.create(description: 'Gasto 2', currency: 42.26, category_id: c5.id, wallet_id: wallet1.id, payment_method_id: p2.id)
 FinancialObjects::Expense.create(description: 'Gasto 3', currency: 55.52, category_id: c6.id, wallet_id: wallet1.id, payment_method_id: p3.id)
+FinancialObjects::Expense.create(description: 'Gasto 4', currency: 200.53, category_id: c4.id, wallet_id: wallet1.id, payment_method_id: p1.id)
+FinancialObjects::Expense.create(description: 'Gasto 5', currency: 42.26, category_id: c5.id, wallet_id: wallet1.id, payment_method_id: p2.id)
+FinancialObjects::Expense.create(description: 'Gasto 6', currency: 55.52, category_id: c6.id, wallet_id: wallet1.id, payment_method_id: p3.id)
+FinancialObjects::Expense.create(description: 'Gasto 7', currency: 200.53, category_id: c4.id, wallet_id: wallet1.id, payment_method_id: p1.id)
+FinancialObjects::Expense.create(description: 'Gasto 8', currency: 42.26, category_id: c5.id, wallet_id: wallet1.id, payment_method_id: p2.id)
+FinancialObjects::Expense.create(description: 'Gasto 9', currency: 55.52, category_id: c6.id, wallet_id: wallet1.id, payment_method_id: p3.id)
+FinancialObjects::Expense.create(description: 'Gasto 10', currency: 200.53, category_id: c4.id, wallet_id: wallet1.id, payment_method_id: p1.id)
+FinancialObjects::Expense.create(description: 'Gasto 11', currency: 42.26, category_id: c5.id, wallet_id: wallet1.id, payment_method_id: p2.id)
+FinancialObjects::Expense.create(description: 'Gasto 12', currency: 55.52, category_id: c6.id, wallet_id: wallet1.id, payment_method_id: p3.id)
 
 #
 # user 2
@@ -53,12 +72,12 @@ FinancialObjects::Income.create(description: 'Ingreso 1', currency: 12.22, categ
 FinancialObjects::Income.create(description: 'Ingreso 2', currency: 342.22, category_id: c2.id, wallet_id: wallet2.id)
 FinancialObjects::Income.create(description: 'Ingreso 3', currency: 1255.22, category_id: c3.id, wallet_id: wallet2.id)
 
-c4 = Categories::CategoryExpense.create(title: 'Mercado', color: '#FF9E33', icon: 'bag', wallet_id: wallet2.id)
-c5 = Categories::CategoryExpense.create(title: 'Luz', color: '#33BCFF', icon: 'bulb', wallet_id: wallet2.id)
-c6 = Categories::CategoryExpense.create(title: 'Ropa', color: '#FF5733', icon: 'shirt', wallet_id: wallet2.id)
+c4 = Categories::CategoryExpense.create(title: 'Super', color: '#FF9E33', icon: 'bag', wallet_id: wallet2.id)
+c5 = Categories::CategoryExpense.create(title: 'Agua', color: '#33BCFF', icon: 'bulb', wallet_id: wallet2.id)
+c6 = Categories::CategoryExpense.create(title: 'Internet', color: '#FF5733', icon: 'shirt', wallet_id: wallet2.id)
 
-p1 = FinancialObjects::PaymentMethod.create(title: 'Tarjeta de credito', description: 'Mi tarjeta roja', wallet_id: wallet2.id)
-p2 = FinancialObjects::PaymentMethod.create(title: 'Tarjeta de debito', description: 'Mi tarjeta azul', wallet_id: wallet2.id)
+p1 = FinancialObjects::PaymentMethod.create(title: 'Tarjeta de credito 1', description: 'Mi tarjeta roja', wallet_id: wallet2.id)
+p2 = FinancialObjects::PaymentMethod.create(title: 'Tarjeta de debito 2', description: 'Mi tarjeta azul', wallet_id: wallet2.id)
 p3 = FinancialObjects::PaymentMethod.create(title: 'Efectivo', description: 'bajo el colchon', wallet_id: wallet2.id)
 
 
