@@ -1,6 +1,6 @@
 module FinancialObjects
   class IncomesController < ApplicationController
-    before_action :set_financial_objects_income, only: %i[ show edit update destroy ]
+    before_action :set_financial_objects_income, only: %i[ show edit destroy ]
     before_action :authenticate_user!
 
     # GET /financial_objects/incomes or /financial_objects/incomes.json
@@ -37,8 +37,11 @@ module FinancialObjects
 
     # PATCH/PUT /financial_objects/incomes/1 or /financial_objects/incomes/1.json
     def update
+      manager = FinancialObjects::IncomeManager.new
+      updated_succeeds, @financial_objects_expense = manager.update(params[:id], financial_objects_income_params, current_user)
+
       respond_to do |format|
-        if @financial_objects_income.update(financial_objects_income_params)
+        if updated_succeeds
           format.html { redirect_to @financial_objects_income, notice: 'Income was successfully updated.' }
           format.json { render :show, status: :ok, location: @financial_objects_income }
         else

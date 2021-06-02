@@ -37,9 +37,9 @@ module FinancialObjects
     # PATCH/PUT /financial_objects/expenses/1 or /financial_objects/expenses/1.json
     def update
       manager = FinancialObjects::ExpenseManager.new
-      updated, @financial_objects_expense = manager.update(params[:id], financial_objects_expense_params, current_user)
+      updated_succeeds, @financial_objects_expense = manager.update(params[:id], financial_objects_expense_params, current_user)
       respond_to do |format|
-        if updated
+        if updated_succeeds
           format.html { redirect_to @financial_objects_expense, notice: 'Expense was successfully updated.' }
           format.json { render :show, status: :ok, location: @financial_objects_expense }
         else
