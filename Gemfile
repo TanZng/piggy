@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.7'
 #
 gem 'devise'
 
+# Paginate
+gem 'pagy', '~> 4.7'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -37,6 +40,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'faker', '~> 2.18'
+  # Help to kill N+1 queries and unused eager loading
+  gem 'bullet'
 end
 
 group :development do

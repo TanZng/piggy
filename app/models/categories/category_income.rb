@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  color      :string
+#  date       :date
 #  icon       :string
 #  title      :string
 #  created_at :datetime         not null

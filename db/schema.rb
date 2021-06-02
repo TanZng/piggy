@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_033331) do
     t.string "title"
     t.string "color"
     t.string "icon"
+    t.date "date"
     t.bigint "wallet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

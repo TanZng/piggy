@@ -19,5 +19,9 @@
 module Users
   class Wallet < ApplicationRecord
     belongs_to :user, class_name: 'Users::User', foreign_key: 'user_id'
+    has_many :financial_objects_incomes, class_name: 'FinancialObjects::Income'
+    has_many :financial_objects_expenses, class_name: 'FinancialObjects::Expense'
+    has_many :categories_category_incomes, class_name: 'Categories::CategoryIncome'
+    has_many :categories_category_expenses, class_name: 'Categories::CategoryExpense'
   end
 end

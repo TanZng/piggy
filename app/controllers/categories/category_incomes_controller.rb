@@ -1,11 +1,13 @@
 module Categories
   class CategoryIncomesController < ApplicationController
-    before_action :set_categories_category_income, only: %i[ show edit update destroy ]
+    before_action :set_categories_category_income, only: %i[show edit destroy]
     before_action :authenticate_user!
 
     # GET /categories/category_incomes or /categories/category_incomes.json
     def index
-      @categories_category_incomes = Categories::CategoryIncome.all
+      # @categories_category_incomes = Categories::CategoryIncome.all
+      @categories_category_incomes = manager.index(current_user)
+      @pagy, @categories_category_incomes = pagy(@categories_category_incomes)
     end
 
     # GET /categories/category_incomes/1 or /categories/category_incomes/1.json
@@ -21,7 +23,6 @@ module Categories
 
     # POST /categories/category_incomes or /categories/category_incomes.json
     def create
-      manager = Categories::CategoryIncomeManager.new
       @categories_category_income = manager.create(categories_category_income_params, current_user)
 
       respond_to do |format|
@@ -37,8 +38,10 @@ module Categories
 
     # PATCH/PUT /categories/category_incomes/1 or /categories/category_incomes/1.json
     def update
+      updated_succeeds, @categories_category_income = manager.update(params[:id], categories_category_income_params, current_user)
+
       respond_to do |format|
-        if @categories_category_income.update(categories_category_income_params)
+        if updated_succeeds
           format.html { redirect_to @categories_category_income, notice: 'Category income was successfully updated.' }
           format.json { render :show, status: :ok, location: @categories_category_income }
         else
@@ -58,6 +61,10 @@ module Categories
     end
 
     private
+
+    def manager
+      Categories::CategoryIncomeManager.new
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_categories_category_income

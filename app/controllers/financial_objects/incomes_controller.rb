@@ -1,11 +1,12 @@
 module FinancialObjects
   class IncomesController < ApplicationController
-    before_action :set_financial_objects_income, only: %i[ show edit update destroy ]
+    before_action :set_financial_objects_income, only: %i[show edit destroy]
     before_action :authenticate_user!
 
     # GET /financial_objects/incomes or /financial_objects/incomes.json
     def index
-      @financial_objects_incomes = FinancialObjects::Income.all
+      @financial_objects_incomes = manager.index(current_user)
+      @pagy, @financial_objects_incomes = pagy(@financial_objects_incomes)
     end
 
     # GET /financial_objects/incomes/1 or /financial_objects/incomes/1.json
@@ -21,7 +22,6 @@ module FinancialObjects
 
     # POST /financial_objects/incomes or /financial_objects/incomes.json
     def create
-      manager = FinancialObjects::IncomeManager.new
       @financial_objects_income = manager.create(financial_objects_income_params, current_user)
 
       respond_to do |format|
@@ -37,8 +37,10 @@ module FinancialObjects
 
     # PATCH/PUT /financial_objects/incomes/1 or /financial_objects/incomes/1.json
     def update
+      updated_succeeds, @financial_objects_income = manager.update(params[:id], financial_objects_income_params, current_user)
+
       respond_to do |format|
-        if @financial_objects_income.update(financial_objects_income_params)
+        if updated_succeeds
           format.html { redirect_to @financial_objects_income, notice: 'Income was successfully updated.' }
           format.json { render :show, status: :ok, location: @financial_objects_income }
         else
@@ -58,6 +60,10 @@ module FinancialObjects
     end
 
     private
+
+    def manager
+      FinancialObjects::IncomeManager.new
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_financial_objects_income

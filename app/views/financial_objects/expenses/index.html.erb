@@ -20,8 +20,8 @@
       <tr>
         <td><%= financial_objects_expense.description %></td>
         <td><%= financial_objects_expense.currency %></td>
-        <td><%= financial_objects_expense.category_id %></td>
-        <td><%= financial_objects_expense.payment_method_id %></td>
+        <td><%= financial_objects_expense.category.title %></td>
+        <td><%= financial_objects_expense.payment_method.title %></td>
         <td><%= financial_objects_expense.wallet_id %></td>
         <td><%= financial_objects_expense.date %></td>
         <td><%= link_to 'Show', financial_objects_expense %></td>
@@ -35,3 +35,5 @@
 <br>
 
 <%= link_to 'New Financial Objects Expense', new_financial_objects_expense_path %>
+
+<%== pagy_nav(@pagy) %>
