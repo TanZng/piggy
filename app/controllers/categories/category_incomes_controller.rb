@@ -5,7 +5,9 @@ module Categories
 
     # GET /categories/category_incomes or /categories/category_incomes.json
     def index
-      @categories_category_incomes = Categories::CategoryIncome.all
+      # @categories_category_incomes = Categories::CategoryIncome.all
+      @categories_category_incomes = manager.index(current_user)
+      @pagy, @categories_category_incomes = pagy(@categories_category_incomes)
     end
 
     # GET /categories/category_incomes/1 or /categories/category_incomes/1.json

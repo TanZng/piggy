@@ -7,5 +7,9 @@ module Categories
     def update(id, category_params, user)
       Categories::UpdateService.call(id, category_params, user, 'Income')
     end
+
+    def index(user)
+      Categories::IndexService.call(user, 'Income')
+    end
   end
 end

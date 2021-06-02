@@ -5,7 +5,9 @@ module Categories
 
     # GET /categories/category_expenses or /categories/category_expenses.json
     def index
-      @categories_category_expenses = Categories::CategoryExpense.all
+      # @categories_category_expenses = Categories::CategoryExpense.all
+      @categories_category_expenses = manager.index(current_user)
+      @pagy, @categories_category_expenses = pagy(@categories_category_expenses)
     end
 
     # GET /categories/category_expenses/1 or /categories/category_expenses/1.json
