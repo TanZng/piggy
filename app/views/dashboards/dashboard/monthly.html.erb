@@ -28,6 +28,16 @@
 <h3>Income <%= BigDecimal(FinancialObjects::Income.where(conditions1).sum(:currency)).to_f %></h3>
 <h3>Expense <%= BigDecimal(FinancialObjects::Expense.where(conditions).sum(:currency)).to_f %></h3>
 
+<%
+  @data =     [
+    {name: "Incomes", data: {"Incomes": FinancialObjects::Income.where(conditions1).sum(:currency)}},
+    {name: "Expenses", data: {"Expenses": FinancialObjects::Expense.where(conditions).sum(:currency)}}
+  ]
+
+%>
+<h2>Expenses vs Incomes</h2>
+<%= bar_chart @data, stacked: true%>
+
 
 <% @a = FinancialObjects::Income.where(conditions1).group_by_day(:date).sum('financial_objects_incomes.currency') %>
 
