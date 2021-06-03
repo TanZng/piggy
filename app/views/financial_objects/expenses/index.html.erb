@@ -19,11 +19,11 @@
     <% @financial_objects_expenses.each do |financial_objects_expense| %>
       <tr>
         <td><%= financial_objects_expense.description %></td>
-        <td><%= financial_objects_expense.currency %></td>
+        <td>-<%= number_to_currency(financial_objects_expense.currency) %></td>
         <td><%= financial_objects_expense.category.title %></td>
         <td><%= financial_objects_expense.payment_method.title %></td>
         <td><%= financial_objects_expense.wallet_id %></td>
-        <td><%= financial_objects_expense.date %></td>
+        <td><%= decorate(financial_objects_expense.date).short %></td>
         <td><%= link_to 'Show', financial_objects_expense %></td>
         <td><%= link_to 'Edit', edit_financial_objects_expense_path(financial_objects_expense) %></td>
         <td><%= link_to 'Destroy', financial_objects_expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>

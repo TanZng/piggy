@@ -9,10 +9,10 @@
   <%= form.submit "Go" %>
 <% end %>
 
-<h2>Income <%= number_to_currency(@report.total_incomes_currency) %></h2>
+<h2>Income +<%= number_to_currency(@report.total_incomes_currency) %></h2>
 
 
-<h2>Expense <%= number_to_currency(@report.total_expenses_currency) %></h2>
+<h2>Expense -<%= number_to_currency(@report.total_expenses_currency) %></h2>
 
 <%
   @data = [
