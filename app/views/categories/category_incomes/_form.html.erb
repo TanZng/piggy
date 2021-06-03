@@ -12,8 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%#= form.label :title %>
+    <%#= form.text_field :title %>
+    <%= render(InputTextField::Component.new(form: form,
+                                             attribute_name: :title)) %>
   </div>
 
   <div class="field">
@@ -24,11 +26,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :icon %>
-    <%= form.text_field :icon %>
+    <%= render(InputTextField::Component.new(form: form,
+                                             attribute_name: :icon)) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= render(SubmitFormButton::Component.new(form: form)) %>
   </div>
 <% end %>

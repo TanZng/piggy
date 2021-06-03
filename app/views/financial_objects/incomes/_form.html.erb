@@ -35,6 +35,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= render(SubmitFormButton::Component.new(form: form)) %>
   </div>
 <% end %>

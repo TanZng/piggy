@@ -21,20 +21,20 @@
   ]
 %>
 <h2>Expenses vs Incomes</h2>
-<%= bar_chart @data, stacked: true%>
+<%= bar_chart @data, {stacked: true, thousands: ",", prefix: "$", round: 2, zeros: true }%>
 
 <%  @data = [{:name=>"Income",  :data=> @report.daily_income }, {:name=>"Expense",  :data=> @report.daily_expense }] %>
 <h2>Total Expenses and Incomes every day</h2>
-<%= line_chart @data %>
+<%= line_chart @data, { thousands: ",", prefix: "$", round: 2, zeros: true }%>
 
 <br>
 <br>
 
 <h2>Expenses by category</h2>
-<%= pie_chart @report.expenses_currency_by_categories  %>
+<%= pie_chart @report.expenses_currency_by_categories, { thousands: ",", prefix: "$", round: 2, zeros: true }  %>
 
 <br>
 <br>
 
 <h2>Incomes by category</h2>
-<%= pie_chart @report.incomes_currency_by_categories %>
+<%= pie_chart @report.incomes_currency_by_categories, { thousands: ",", prefix: "$", round: 2, zeros: true } %>
