@@ -11,8 +11,8 @@
 
   <div class="antialiased sans-serif">
     <div x-data="app()" x-init="[initDate(<%= "'#{@date.to_s}'" %>), getNoOfDays()]" x-cloak>
-      <div class="px-4 py-2 md:py-10">
-        <div class="mb-5 w-64">
+      <div class="">
+        <div class="mb-5 w-48">
 
           <label for="datepicker" class="font-bold mb-1 text-gray-700 block">Date</label>
           <div class="relative">
@@ -25,10 +25,10 @@
               x-model="datepickerValue"
               @click="showDatepicker = !showDatepicker"
               @keydown.escape="showDatepicker = false"
-              class="w-full pl-4 pr-10 py-3 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+              class="w-full pl-4 pr-10 py-3 leading-none rounded-3xl border border-gray-300 focus:outline-none text-gray-600 font-medium"
               placeholder="Select date">
 
-            <div class="bg-gray-100 absolute top-0 right-0 px-3 py-2">
+            <div class="rounded-3xl absolute top-0 right-0 px-3 py-2">
               <svg class="h-6 w-6 text-gray-400"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
@@ -40,7 +40,7 @@
             <div x-text="new Date(year, month).getDay()"></div> -->
 
             <div
-              class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0"
+              class="bg-white mt-12 rounded-3xl shadow p-4 absolute top-0 left-0"
               style="width: 17rem"
               x-show.transition="showDatepicker"
               @click.away="showDatepicker = false">
