@@ -1,0 +1,6 @@
+<!-- component -->
+<%= @form.label @attribute_name , {}, { :class => "font-bold mb-1 text-gray-700 block" }%>
+<div class="relative text-gray-600">
+  <%= @form.text_field @attribute_name , { autocomplete: 'off',
+                                           class: "border border-gray-300 rounded-3xl bg-white h-10 px-5 pr-4 text-gray-700 focus:outline-none" }%>
+</div>

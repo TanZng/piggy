@@ -17,12 +17,12 @@
             <%= @form.label @attribute_name, :class => "font-bold mb-1 text-gray-700 block" %>
             <input id="colorSelected <%= @klass %>_<%= @attribute_name %>" type="text" placeholder="Pick a color"
                    name="<%= @klass %>[<%= @attribute_name %>]"
-                   class="h-10 px-4 py-2 leading-normal bg-white border border-gray-300 rounded-3xl focus:outline-none"
+                   class="h-10 px-4 py-2 leading-normal bg-white text-gray-600 border border-gray-300 rounded-3xl focus:outline-none"
                    :value="`${colorSelected}`"
                    readonly
                    x-model="colorSelected">
           </div>
-          <div class="relative ml-3 mt-5">
+          <div class="relative ml-2 mt-6">
             <button type="button" @click="isOpen = !isOpen"
                     :class="`${colorSelected} w-10 h-10 rounded-full focus:outline-none inline-flex p-2`"
                     style="color: white"
