@@ -47,23 +47,24 @@ sp1.success
 
 sp2.auto_spin
 
+colors = ['bg-green-500', 'bg-red-500', 'bg-blue-500', 'bg-yellow-500', 'bg-teal-500', 'bg-indigo-500', 'bg-pink-500', 'bg-orange-500', 'bg-purple-500']
 n.times do
-  Categories::CategoryIncome.create(title: Faker::Company.name, color: Faker::Color.hex_color,
+  Categories::CategoryIncome.create(title: Faker::Company.name, color: colors.sample,
                                     icon: Faker::Creature::Animal.name, wallet_id: wallet1.id)
 
-  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: Faker::Color.hex_color,
+  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: colors.sample,
                                      icon: Faker::Creature::Animal.name, wallet_id: wallet1.id)
 
-  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type} #{Faker::Color.color_name}",
+  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type}-#{Faker::Color.color_name}",
                                          description: Faker::Bank.name, wallet_id: wallet1.id)
 
-  Categories::CategoryIncome.create(title: Faker::Company.name, color: Faker::Color.hex_color,
+  Categories::CategoryIncome.create(title: Faker::Company.name, color: colors.sample,
                                     icon: Faker::Creature::Animal.name, wallet_id: wallet2.id)
 
-  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: Faker::Color.hex_color,
+  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: colors.sample,
                                      icon: Faker::Creature::Animal.name, wallet_id: wallet2.id)
 
-  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type} #{Faker::Color.color_name}",
+  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type}-#{Faker::Color.color_name}",
                                          description: Faker::Bank.name, wallet_id: wallet2.id)
 end
 

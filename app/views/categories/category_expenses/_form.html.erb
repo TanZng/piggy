@@ -20,7 +20,9 @@
     <%= form.label :color %>
     <%#= form.color_field :color, value: '#FFFFFF' %>
 <!--    <span title="<%#= form.object_name %>"></span>-->
-    <%= render(ColorPicker::Component.new(klass: form.object_name, attribute_name: :color)) %>
+    <%= render(ColorPicker::Component.new(klass: form.object_name,
+                                          attribute_name: :color,
+                                          color: categories_category_expense.color)) %>
   </div>
 
   <div class="field">

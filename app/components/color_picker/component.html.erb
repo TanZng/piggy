@@ -7,7 +7,7 @@
           display: none;
       }
   </style>
-  <div x-data="app()" x-cloak>
+  <div x-data="app(<%= "'#{@color}'" %>)" x-cloak>
     <div>
 
       <div class="mb-5">
@@ -74,13 +74,13 @@
   </div>
 
   <script>
-      function app() {
+      function app(color) {
+          let color_selected = color.toString() === '' ? 'bg-teal-500' : color.toString();
           x = {
               isOpen: false,
               colors: ['bg-green-500', 'bg-red-500', 'bg-blue-500', 'bg-yellow-500', 'bg-teal-500', 'bg-indigo-500', 'bg-pink-500', 'bg-orange-500', 'bg-purple-500'],
-              colorSelected: 'bg-teal-500'
+              colorSelected: color_selected
           }
-          console.log(x.colorSelected);
           return x
       }
   </script>
