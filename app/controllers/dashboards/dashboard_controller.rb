@@ -3,7 +3,10 @@ module Dashboards
     before_action :set_month_and_year, only: :monthly
     before_action :set_year, only: :annual
 
-    def monthly; end
+    def monthly
+      @report = Dashboards::DashboardManager.new.show_monthly(current_user, @month, @year)
+      puts @report
+    end
 
     def annual; end
 

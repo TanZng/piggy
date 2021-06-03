@@ -1,7 +1,7 @@
 <h1>Dashboards::Dashboard#monthly</h1>
 <p>Find me in app/views/dashboards/dashboard/monthly.html.erb</p>
 
-<p type="month"><%= Date::MONTHNAMES[@month] %>, <%= @year %></p>
+<p type="month"><%= decorate(@month).month_name %>, <%= @year %></p>
 
 <%= form_with url: "/monthly", method: :get do |form| %>
   <%= form.label :month, "Choose a month:" %>
@@ -25,13 +25,13 @@
    end.join(' AND ')
 %>
 
-<h3>Income <%= BigDecimal(FinancialObjects::Income.where(conditions1).sum(:currency)).to_f %></h3>
-<h3>Expense <%= BigDecimal(FinancialObjects::Expense.where(conditions).sum(:currency)).to_f %></h3>
+<h3>Income <%= number_to_currency(@report.total_incomes_currency) %></h3>
+<h3>Expense <%= number_to_currency(@report.total_expenses_currency) %></h3>
 
 <%
   @data =     [
-    {name: "Incomes", data: {"Incomes": FinancialObjects::Income.where(conditions1).sum(:currency)}},
-    {name: "Expenses", data: {"Expenses": FinancialObjects::Expense.where(conditions).sum(:currency)}}
+    {name: "Incomes", data: { "Incomes": (@report.total_incomes_currency) }},
+    {name: "Expenses", data: { "Expenses": (@report.total_expenses_currency) }}
   ]
 
 %>
@@ -57,6 +57,7 @@
 <h2>Expenses by category</h2>
 <%= pie_chart @d  %>
 <br>
+<%= @d %>
 <br>
 <h2>Incomes by category</h2>
 <%= pie_chart @c %>
