@@ -17,9 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :color %>
-    <%#= form.color_field :color, value: '#FFFFFF' %>
     <%= render(ColorPicker::Component.new(klass: form.object_name,
+                                          form: form,
                                           attribute_name: :color,
                                           color: categories_category_income.color)) %>
   </div>
