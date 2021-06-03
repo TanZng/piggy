@@ -7,12 +7,12 @@
 
 <p>
   <strong>Currency:</strong>
-  <%= @financial_objects_income.currency %>
+  <%= number_to_currency(@financial_objects_income.currency) %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @financial_objects_income.category_id %>
+  <%= @financial_objects_income.category.title %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @financial_objects_income.date %>
+  <%= decorate(@financial_objects_income.date).long %>
 </p>
 
 <%= link_to 'Edit', edit_financial_objects_income_path(@financial_objects_income) %> |

@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
+    <%= render(InputMoneyField::Component.new(form: form,
+                                              attribute_name: :currency)) %>
   </div>
 
   <div class="field">

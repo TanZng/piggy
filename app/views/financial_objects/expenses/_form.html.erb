@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
+    <%= render(InputMoneyField::Component.new(form: form,
+                                             attribute_name: :currency)) %>
   </div>
 
   <div class="field">
@@ -26,7 +26,7 @@
     <%#= form.select :category_id, decorate(current_user).my_categories_incomes %>
     <%= render(SelectField::Component.new(form: form,
                                           attribute_name: :category_id,
-                                          items: decorate(current_user).my_categories_incomes)) %>
+                                          items: decorate(current_user).my_categories_expenses)) %>
   </div>
 
   <div class="field">
