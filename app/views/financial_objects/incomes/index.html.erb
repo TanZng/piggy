@@ -17,7 +17,7 @@
     <% @financial_objects_incomes.each do |financial_objects_income| %>
       <tr>
         <td><%= financial_objects_income.description %></td>
-        <td><%= financial_objects_income.currency %></td>
+        <td><%= number_to_currency(financial_objects_income.currency) %></td>
         <td><%= financial_objects_income.category.title %></td>
         <td><%= financial_objects_income.wallet_id %></td>
         <td><%= link_to 'Show', financial_objects_income %></td>

@@ -22,18 +22,24 @@
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, decorate(current_user).my_categories_incomes %>
+    <%#= form.label :category_id %>
+    <%#= form.select :category_id, decorate(current_user).my_categories_incomes %>
+    <%= render(SelectField::Component.new(form: form,
+                                          attribute_name: :category_id,
+                                          items: decorate(current_user).my_categories_incomes)) %>
   </div>
 
   <div class="field">
-    <%= form.label :payment_method_id %>
-    <%= form.select :payment_method_id, decorate(current_user).my_payment_methods %>
+    <%#= form.label :payment_method_id %>
+    <%#= form.select :payment_method_id, decorate(current_user).my_payment_methods %>
+    <%= render(SelectField::Component.new(form: form,
+                                          attribute_name: :payment_method_id,
+                                          items: decorate(current_user).my_payment_methods)) %>
   </div>
+
   <div class="field">
-    <%= form.label :date %>
-    <%#= form.text_field :date %>
     <%= render(DatePicker::Component.new(klass: form.object_name,
+                                         form: form,
                                           attribute_name: :date,
                                          date: financial_objects_expense.date)) %>
   </div>
