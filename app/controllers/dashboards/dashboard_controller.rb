@@ -5,10 +5,11 @@ module Dashboards
 
     def monthly
       @report = Dashboards::DashboardManager.new.show_monthly(current_user, @month, @year)
-      puts @report
     end
 
-    def annual; end
+    def annual
+      @report = Dashboards::DashboardManager.new.show_annual(current_user, @year)
+    end
 
     private
 

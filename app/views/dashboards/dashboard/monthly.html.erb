@@ -1,7 +1,7 @@
 <h1>Dashboards::Dashboard#monthly</h1>
 <p>Find me in app/views/dashboards/dashboard/monthly.html.erb</p>
 
-<p type="month"><%= decorate(@month).month_name %>, <%= @year %></p>
+<h1 type="month"><%= decorate(@month).month_name %>, <%= @year %></h1>
 
 <%= form_with url: "/monthly", method: :get do |form| %>
   <%= form.label :month, "Choose a month:" %>

@@ -1,6 +1,6 @@
 <h1>Dashboards::Dashboard#annual</h1>
 <p>Find me in app/views/dashboards/dashboard/annual.html.erb</p>
-<p type="month"><%= @year %></p>
+<h1 type="year"><%= @year %></h1>
 
 <%= form_with url: "/annual", method: :get do |form| %>
   <%= form.label :year, "Choose a year:" %>
@@ -8,52 +8,32 @@
   <%= form.submit "Go" %>
 <% end %>
 
-<%#= line_chart FinancialObjects::Income.where("created_at > ? AND created_at < ?", Time.now.beginning_of_month, Time.now.end_of_month, 1).group_by_day(:date).count %>
-<% conditions1 = []
-   conditions1 << ["date_part('year', financial_objects_incomes.date) = '#{@year}'"]
-   conditions1 << ["financial_objects_incomes.wallet_id = #{1}"]
-   conditions1 = conditions1.map do |conds|
-     " ( #{conds.join(' AND ')} ) "
-   end.join(' AND ')
-%>
-<% conditions = []
-   conditions << ["date_part('year', financial_objects_expenses.date) = '#{@year}'"]
-   conditions << ["financial_objects_expenses.wallet_id = #{1}"]
-   conditions = conditions.map do |conds|
-     " ( #{conds.join(' AND ')} ) "
-   end.join(' AND ')
-%>
+<h2>Income <%= number_to_currency(@report.total_incomes_currency) %></h2>
 
-<h3>Income <%= BigDecimal(FinancialObjects::Income.where(conditions1).sum(:currency)).to_f %></h3>
-<h3>Expense <%= BigDecimal(FinancialObjects::Expense.where(conditions).sum(:currency)).to_f %></h3>
+<h2>Expense <%= number_to_currency(@report.total_expenses_currency) %></h2>
 
 <%
   @data =     [
-    {name: "Incomes", data: {"Incomes": FinancialObjects::Income.where(conditions1).sum(:currency)}},
-    {name: "Expenses", data: {"Expenses": FinancialObjects::Expense.where(conditions).sum(:currency)}}
+    {name: "Incomes", data: { "Incomes": @report.total_incomes_currency }},
+    {name: "Expenses", data: { "Expenses": @report.total_expenses_currency }}
   ]
 
 %>
 <h2>Expenses vs Incomes</h2>
 <%= bar_chart @data, stacked: true%>
 
-
-<% @a = FinancialObjects::Income.where(conditions1).group_by_month(:date).sum('financial_objects_incomes.currency') %>
-<% @b= FinancialObjects::Expense.where(conditions).group_by_month(:date).sum('financial_objects_expenses.currency') %>
-<%  @data = [{:name=>"Income",  :data=> @a }, {:name=>"Expense",  :data=> @b }] %>
+<%  @data = [{:name=>"Income",  :data=> @report.monthly_income }, {:name=>"Expense",  :data=> @report.monthly_expense }] %>
 <h2>Total Expenses and Incomes every month</h2>
 <%= line_chart @data %>
 
 <br>
 <br>
 
-<% @c = FinancialObjects::Income.where(conditions1).joins(:category).group('categories_category_incomes.title').sum('financial_objects_incomes.currency') %>
-
-<% @d= FinancialObjects::Expense.where(conditions).joins(:category).group('categories_category_expenses.title').sum('financial_objects_expenses.currency') %>
-
 <h2>Expenses by category</h2>
-<%= pie_chart @d  %>
+<%= pie_chart @report.expenses_currency_by_categories  %>
+
 <br>
 <br>
+
 <h2>Incomes by category</h2>
-<%= pie_chart @c %>
+<%= pie_chart @report.incomes_currency_by_categories %>
