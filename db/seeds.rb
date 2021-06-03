@@ -7,8 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-puts 'Run seed'
+spinners = TTY::Spinner::Multi.new('[:spinner] 🌱 Running seeds')
 
+sp1 = spinners.register '[:spinner] 💻 Registering Users'
+
+sp2 = spinners.register '[:spinner] 🥧 Baking Categories, Payments methods'
+
+sp3 = spinners.register '[:spinner] 💸 Winning and wasting money'
+
+sp1.auto_spin
 #
 # user 1
 #
@@ -36,6 +43,10 @@ t2 = Date.parse('2021-06-15')
 
 n = 5
 
+sp1.success
+
+sp2.auto_spin
+
 n.times do
   Categories::CategoryIncome.create(title: Faker::Company.name, color: Faker::Color.hex_color,
                                     icon: Faker::Creature::Animal.name, wallet_id: wallet1.id)
@@ -56,6 +67,10 @@ n.times do
                                          description: Faker::Bank.name, wallet_id: wallet2.id)
 end
 
+sp2.success
+
+sp3.auto_spin
+
 550.times do
   prng = Random.new
   FinancialObjects::Income.create(description: Faker::Company.industry, currency: Faker::Number.decimal(l_digits: 2),
@@ -72,3 +87,5 @@ end
                                    category_id: rand(1..n), wallet_id: wallet2.id, payment_method_id: rand(1..n),
                                    date: prng.rand(t1..t2))
 end
+
+sp3.success

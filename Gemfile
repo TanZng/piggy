@@ -64,6 +64,8 @@ group :development do
   gem 'spring'
   # Add a comment summarizing the current schema of ActiveRecord models
   gem 'annotate'
+  # Loading seeds
+  gem "tty-spinner"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
