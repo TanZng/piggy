@@ -27,7 +27,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @financial_objects_expense.date %>
+  <%= decorate(@financial_objects_expense.date).long %>
 </p>
 
 <%= link_to 'Edit', edit_financial_objects_expense_path(@financial_objects_expense) %> |
