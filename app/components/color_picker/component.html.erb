@@ -1,6 +1,5 @@
 <!-- component -->
 <div class="antialiased sans-serif">
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   <style>
       [x-cloak] {
@@ -17,7 +16,7 @@
             <%= @form.label @attribute_name, :class => "font-bold mb-1 text-gray-700 block" %>
             <input id="colorSelected <%= @klass %>_<%= @attribute_name %>" type="text" placeholder="Pick a color"
                    name="<%= @klass %>[<%= @attribute_name %>]"
-                   class="h-10 px-4 py-2 leading-normal bg-white text-gray-600 border border-gray-300 rounded-3xl focus:outline-none"
+                   class="h-10 px-4 py-2 leading-normal bg-white text-gray-600 border border-gray-300 rounded-3xl focus:outline-none appearance-none border-transparent focus:border-gray-300 focus:ring-0"
                    :value="`${colorSelected}`"
                    readonly
                    x-model="colorSelected">

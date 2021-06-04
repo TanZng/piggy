@@ -19,15 +19,15 @@
   </div>
 
   <div class="field">
+    <%= render(InputTextField::Component.new(form: form,
+                                             attribute_name: :icon)) %>
+  </div>
+
+  <div class="field">
     <%= render(ColorPicker::Component.new(klass: form.object_name,
                                           form: form,
                                           attribute_name: :color,
                                           color: categories_category_income.color)) %>
-  </div>
-
-  <div class="field">
-    <%= render(InputTextField::Component.new(form: form,
-                                             attribute_name: :icon)) %>
   </div>
 
   <div class="actions">

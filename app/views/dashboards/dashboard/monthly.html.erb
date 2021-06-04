@@ -5,7 +5,7 @@
 
 <%= form_with url: "/monthly", method: :get do |form| %>
   <%= form.label :month, "Choose a month:" %>
-  <%= form.month_field :month, :value => @month_and_year%>
+  <%= form.month_field :month, class:"rounded-md bg-gray-100 border-transparent focus:border-transparent focus:ring-0", value: @month_and_year%>
   <%= form.submit "Go" %>
 <% end %>
 
