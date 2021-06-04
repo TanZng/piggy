@@ -99,6 +99,8 @@ GEM
       activesupport (>= 4.2.0)
     groupdate (5.2.2)
       activesupport (>= 5)
+    heroicon (0.3.0)
+      rails (>= 5.2)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
@@ -245,6 +247,7 @@ DEPENDENCIES
   factory_bot_rails
   faker (~> 2.18)
   groupdate (~> 5.2)
+  heroicon
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pagy (~> 4.7)

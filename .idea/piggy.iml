@@ -61,6 +61,7 @@
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.15.0, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="groupdate (v5.2.2, asdf: 3.0.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="heroicon (v0.3.0, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.8.10, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.2, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.5.1, asdf: 3.0.0) [gem]" level="application" />
@@ -145,6 +146,7 @@
         <option value="generator" />
         <option value="haml:component" />
         <option value="helper" />
+        <option value="heroicon:install" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />
@@ -216,6 +218,7 @@
         <option value="generator" />
         <option value="haml:component" />
         <option value="helper" />
+        <option value="heroicon:install" />
         <option value="integration_test" />
         <option value="jbuilder" />
         <option value="job" />

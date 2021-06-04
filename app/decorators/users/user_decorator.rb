@@ -19,5 +19,10 @@ module Users
         [payment_method.title, payment_method.id]
       end
     end
+
+    def gravatar_url
+      gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+      "https://secure.gravatar.com/avatar/#{gravatar_id}"
+    end
   end
 end

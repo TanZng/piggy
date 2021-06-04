@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.7'
 #
 gem 'devise'
 
+# Non official https://heroicons.com/ for rails (https://github.com/bharget/heroicon)
+gem "heroicon"
+
 # Paginate
 gem 'pagy', '~> 4.7'
 # Charts
