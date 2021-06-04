@@ -1,0 +1,11 @@
+<!-- Mobile button component -->
+<div>
+  <div class="mobile-nav-bar-title">
+    <%= heroicon @icon, options: { class: "pb-0.5 inline h-5 w-5" } %>
+    <label class="inline">Dashboards</label>
+    <hr class="mobile-nav-bar-line">
+  </div>
+  <% @links.each do |key, value| %>
+  <a href="<%= key %>" class="mobile-nav-bar-button"><%= key %></a>
+  <% end %>
+</div>

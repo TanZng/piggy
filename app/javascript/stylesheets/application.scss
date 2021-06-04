@@ -2,6 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+$nav-bar-background:bg-gray-100;
+
 .form-title{
   @apply block font-bold mb-1 text-gray-700 dark:text-gray-200;
 }
@@ -38,4 +40,16 @@
 
 .disable{
   @apply opacity-50 cursor-not-allowed bg-gray-300 dark:bg-coolGray-700;
+}
+
+.mobile-nav-bar-button{
+  @apply block px-6 dark:text-gray-200 text-gray-700 transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-coolGray-700 rounded-md;
+}
+
+.mobile-nav-bar-title{
+  @apply dark:text-blueGray-400 text-gray-400 transition-colors duration-200 pt-1;
+}
+
+.mobile-nav-bar-line{
+  @apply dark:border-blueGray-600 border-gray-200 transition-colors duration-200 pb-1;
 }
