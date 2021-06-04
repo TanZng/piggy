@@ -13,7 +13,7 @@
       <div class="">
         <div class="mb-5 w-48">
 
-          <%= @form.label @attribute_name, :class => "font-bold mb-1 text-gray-700 block" %>
+          <%= @form.label @attribute_name, :class => "form-title" %>
           <div class="relative">
             <input type="hidden" name="date" x-ref="date">
             <input
@@ -24,7 +24,7 @@
               x-model="datepickerValue"
               @click="showDatepicker = !showDatepicker"
               @keydown.escape="showDatepicker = false"
-              class="w-full pl-4 pr-10 py-3 leading-none rounded-3xl border border-gray-300 focus:outline-none text-gray-600 appearance-none border-transparent focus:border-gray-300 focus:ring-0"
+              class="w-full pl-4 pr-10 py-3 leading-none form-field"
               placeholder="Select date">
 
             <div class="rounded-3xl absolute top-0 right-0 px-3 py-2">

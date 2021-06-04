@@ -1,3 +1,16 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.form-title{
+  @apply block font-bold mb-1 text-gray-700 dark:text-gray-200;
+}
+
+.form-field{
+  @apply bg-white text-gray-600 border border-gray-300 rounded-xl focus:outline-none appearance-none border-transparent focus:border-gray-300 focus:ring-0;
+  @apply dark:bg-blueGray-800 dark:text-gray-200 dark:border-gray-700
+}
+
+.green-button{
+  @apply border-none bg-emerald-500 hover:bg-emerald-600 text-white text-center text-base focus:outline-none  rounded-xl
+}

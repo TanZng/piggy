@@ -13,10 +13,10 @@
         <div class="flex items-center">
           <div>
 
-            <%= @form.label @attribute_name, :class => "font-bold mb-1 text-gray-700 block" %>
+            <%= @form.label @attribute_name, :class => "form-title" %>
             <input id="colorSelected <%= @klass %>_<%= @attribute_name %>" type="text" placeholder="Pick a color"
                    name="<%= @klass %>[<%= @attribute_name %>]"
-                   class="h-10 px-4 py-2 leading-normal bg-white text-gray-600 border border-gray-300 rounded-3xl focus:outline-none appearance-none border-transparent focus:border-gray-300 focus:ring-0"
+                   class="h-10 px-4 py-2 leading-normal form-field"
                    :value="`${colorSelected}`"
                    readonly
                    x-model="colorSelected">
