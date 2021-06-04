@@ -14,3 +14,28 @@
 .green-button{
   @apply border-none bg-emerald-500 hover:bg-emerald-600 text-white text-center text-base focus:outline-none  rounded-xl
 }
+
+.nav-bar-button{
+  @apply px-4 py-2 block text-gray-700 bg-gray-100 dark:bg-blueGray-800 focus:outline-none;
+  @apply transition-colors duration-200 transform md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-coolGray-700 font-semibold;
+}
+
+.solo.nav-bar-button{
+  @apply rounded-md md:mt-0
+}
+
+.drop.nav-bar-button{
+  @apply rounded-t-xl rounded-b inline-flex items-center md:mt-0;
+}
+
+.top.nav-bar-button{
+  @apply rounded-t
+}
+
+.bot.nav-bar-button{
+  @apply rounded-b-xl
+}
+
+.disable{
+  @apply opacity-50 cursor-not-allowed bg-gray-300 dark:bg-coolGray-700;
+}
