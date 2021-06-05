@@ -1,0 +1,98 @@
+<!-- NavBar -->
+<nav class="bg-gray-100 dark:bg-blueGray-800">
+  <div class="max-w-7xl mx-auto px-2 md:px-5">
+    <div class="relative flex items-center justify-end h-16">
+
+      <%# Logo %>
+      <div class="absolute inset-x-0 md:static flex-1 flex items-center justify-center md:items-stretch
+      md:justify-between">
+        <div class="flex-shrink-0 flex items-center justify-self-end">
+          <i class="fas fa-piggy-bank nav-bar-logo"></i>
+        </div>
+      </div>
+
+      <% if @user_logged.nil? %>
+        <div class="absolute">
+          <a href="<%= new_user_session_path %>" class="solo nav-bar-button">Login</a>
+        </div>
+
+      <% else %>
+        <%# Mobile menu button %>
+      <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
+        <%= render MobileMenuButton::Component.new %>
+      </div>
+        <%# Buttons %>
+        <div class="flex-1 flex items-center justify-center md:items-stretch md:justify-between">
+          <div class="hidden md:block md:ml-6">
+            <div class="flex items-center space-x-4">
+              <%# DASHBOARDS DROPDOWN PC MENU %>
+              <%=render DropDownButton::Component.new(title: "Dashboards",
+                                                      links: {
+                                                        "Monthly" => dashboards_monthly_path,
+                                                        "Annual" => dashboards_annual_path
+                                                      }) %>
+
+              <%=render DropDownButton::Component.new(title: "My Finances",
+                                                      links: {
+                                                        "Expenses" => financial_objects_expenses_path,
+                                                        "Incomes" => financial_objects_incomes_path,
+                                                        "Payment Methods" => financial_objects_payment_methods_path
+                                                      }) %>
+
+              <%=render DropDownButton::Component.new(title: "Categories",
+                                                      links: {
+                                                        "Expenses" => categories_category_expenses_path,
+                                                        "Incomes" => categories_category_incomes_path
+                                                      }) %>
+              <a href="#" class="solo nav-bar-button disable">Goals</a>
+            </div>
+          </div>
+        </div>
+
+        <%# DarkMode Button and User picture button %>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+          <%# DarkMode Button %>
+          <button id="switchTheme" class="h-10 w-10 flex justify-center items-center focus:outline-none text-gray-700
+          dark:text-gray-200">
+            <%= heroicon "moon", options: { class: "absolute text-gray-700 dark:text-transparent w-6" } %>
+            <%= heroicon "sun", options: { class: "absolute text-transparent dark:text-gray-200 w-6" } %>
+          </button>
+
+          <%# User picture buttons %>
+          <%= render PictureDropDown::Component.new(picture_url: decorate(@user_logged).gravatar_url) %>
+        </div>
+    </div>
+
+  </div>
+
+  <%# Mobile menu, show/hide based on menu state, given by openMobileMenu() %>
+  <div class="hidden md:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+
+      <%= render MobileDropDownButton::Component.new(icon: "chart-pie",
+                                                     title: "Dashboards",
+                                                     links: {
+                                                       "Monthly" => dashboards_monthly_path,
+                                                       "Annual" => dashboards_annual_path
+                                                     }) %>
+
+      <%= render MobileDropDownButton::Component.new(icon: "credit-card",
+                                                     title: "My Finances",
+                                                     links: {
+                                                       "Expenses" => financial_objects_expenses_path,
+                                                       "Incomes" => financial_objects_incomes_path,
+                                                       "Payment Methods" => financial_objects_payment_methods_path
+                                                     }) %>
+
+      <%= render MobileDropDownButton::Component.new(icon: "tag",
+                                                     title: "Categories",
+                                                     links: {
+                                                       "Categories for Expenses" => categories_category_expenses_path,
+                                                       "Categories for Incomes" => categories_category_incomes_path,
+                                                     }) %>
+
+    </div>
+  </div>
+      <% end %>
+
+</nav>

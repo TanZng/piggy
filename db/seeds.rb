@@ -29,7 +29,7 @@ user1.save
 #
 # user 2
 #
-user2 = Users::User.create(email: 'email@email.com', password: '123456', password_confirmation: '123456')
+user2 = Users::User.create(email: 'jitewaboh@lagify.com', password: '123456', password_confirmation: '123456')
 
 wallet2 = Users::Wallet.create(name: 'my wallet 2', user_id: user2.id)
 

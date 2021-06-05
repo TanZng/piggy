@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe MobileDropDownButton::Component, type: :component do
+RSpec.describe NavBar::Component, type: :component do
   pending "add some examples to (or delete) #{__FILE__}"
 
   # it "renders something useful" do

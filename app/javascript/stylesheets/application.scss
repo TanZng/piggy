@@ -27,7 +27,7 @@ $nav-bar-background:bg-gray-100;
 }
 
 .drop.nav-bar-button{
-  @apply rounded-t-xl rounded-b inline-flex items-center md:mt-0;
+  @apply rounded-t-xl rounded-b inline-flex items-center md:mt-0 whitespace-nowrap;
 }
 
 .top.nav-bar-button{
@@ -52,4 +52,8 @@ $nav-bar-background:bg-gray-100;
 
 .mobile-nav-bar-line{
   @apply dark:border-blueGray-600 border-gray-200 transition-colors duration-200 pb-1;
+}
+
+.nav-bar-logo{
+  @apply text-4xl font-bold text-gray-700 dark:text-gray-200 lg:text-3xl hover:text-rose-400 dark:hover:text-red-200;
 }
