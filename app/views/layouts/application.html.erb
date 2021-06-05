@@ -13,12 +13,13 @@
 
   </head>
 
-  <body class="bg-gray-200 dark:bg-blueGray-900">
+  <body class="bg-gray-100 dark:bg-blueGray-900">
 
   <%= render NavBar::Component.new(user_logged: current_user) %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-  <div class=" md:container md:mx-auto px-4">
+
+  <div class="md:container md:mx-auto mt-3 px-8 lg:px-20">
     <%= yield %>
   </div>
   </body>
