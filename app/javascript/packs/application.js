@@ -32,7 +32,7 @@ window.openMobileMenu = () => {
     document.getElementById('close-movil-menu-icon').classList.toggle("block");
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("turbolinks:load", () => {
     document.getElementById('switchTheme').addEventListener('click', () => {
         let htmlClasses = document.querySelector('html').classList;
         if(localStorage.theme === 'dark') {
