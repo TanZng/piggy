@@ -18,6 +18,8 @@
   <%= render NavBar::Component.new(user_logged: current_user) %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+  <div class=" md:container md:mx-auto px-4">
     <%= yield %>
+  </div>
   </body>
 </html>
