@@ -42,7 +42,7 @@
     </div>
 
   <div class="row-span-2 col-span-1 lg:col-start-3">
-    <div class="chart-bg">
+    <div class="item-bg">
       <h2 class="chart-title">Expenses by category</h2>
       <%= pie_chart @report.expenses_currency_by_categories, { thousands: ",", prefix: "$", round: 2, zeros: true }  %>
     </div>
@@ -61,7 +61,7 @@
   </div>
 
   <div class="row-span-2 col-span-1 md:col-span-2 lg:col-start-1">
-    <div class="chart-bg">
+    <div class="item-bg">
       <h2 class="chart-title">Expenses vs Incomes</h2>
       <%= bar_chart [
                       {name: "Incomes", data: { "Incomes": (@report.total_incomes_currency) }},
@@ -72,7 +72,7 @@
   </div>
 
   <div class="row-start-7 md:row-start-3 row-span-2 col-span-1 lg:col-start-3">
-    <div class="chart-bg">
+    <div class="item-bg">
       <h2 class="chart-title">Incomes by category</h2>
       <%= pie_chart @report.incomes_currency_by_categories, { thousands: ",", prefix: "$", round: 2, zeros: true } %>
     </div>
@@ -81,7 +81,7 @@
 
   <%  @data1 = [{:name=>"Income",  :data=> @report.daily_income }, {:name=>"Expense",  :data=> @report.daily_expense }] %>
   <div class="row-span-2 col-span-1 md:col-span-2 lg:col-span-3">
-    <div class="chart-bg">
+    <div class="item-bg">
       <h2 class="chart-title">Total Expenses and Incomes every day</h2>
       <%= line_chart @data1, { thousands: ",", prefix: "$", round: 2, zeros: true }%>
     </div>

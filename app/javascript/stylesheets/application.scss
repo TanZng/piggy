@@ -8,13 +8,20 @@ $nav-bar-background:bg-gray-50;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
 }
 
-
 .chart-title{
   @apply text-lg text-gray-700 dark:text-gray-200;
 }
 
-.chart-bg{
+.item-bg{
   @apply shadow-lg rounded-2xl p-5 bg-white dark:bg-blueGray-800;
+}
+
+.item-bg-color{
+  @apply bg-white dark:bg-blueGray-800;
+}
+
+.devise-button{
+  @apply w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blueGray-700 rounded-md hover:bg-blueGray-600 focus:outline-none focus:bg-blueGray-600
 }
 
 .form-title{
