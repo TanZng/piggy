@@ -1,13 +1,31 @@
-<h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
-  <%= decorate(@month).month_name %>, <%= @year %></h1>
 
-<%= form_with url: "/monthly", method: :get do |form| %>
-  <%= form.label :month, "Choose a month:" %>
-  <%= form.month_field :month, class:"form-field", value: @month_and_year%>
-  <%= form.submit "Go!", class:"py-2 px-4 flex justify-center items-center
-  text-white transition duration-500 ease-in-out bg-blue-400
-  hover:bg-blue-500 transform hover:-translate-y-1 hover:scale-110  w-12 h-12 rounded-lg shadow-lg hover:shadow-xl"%>
-<% end %>
+<div class="mt-5 grid grid-cols-1 grid-rows-2 md:grid-cols-4">
+  <div class="row-start-1 md:col-span-2 ">
+    <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
+      <%= decorate(@month).month_name %>, <%= @year %>
+    </h1>
+  </div>
+
+  <div class="row-start-2 md:row-start-2 md:col-span-2 md:col-start-3 block-inline">
+
+      <%= form_with url: dashboards_monthly_path, method: :get do |form| %>
+      <div class="flex flex-row justify-center md:justify-end items-center">
+        <%#= form.label :month, "Choose a month:" %>
+        <div>
+          <%= form.month_field :month, class:"px-2 py-1 form-field", value: @month_and_year%>
+        </div>
+
+        <div class="pl-5">
+          <%= form.submit "Go!", class:"py-2 px-4 flex justify-center items-center text-white transition duration-500
+    ease-in-out bg-blue-400 hover:bg-blue-500 transform hover:translate-y-1 hover:scale-110  w-12 h-12 rounded-lg
+    hover:shadow-lg"%>
+        </div>
+
+      </div>
+      <% end %>
+
+  </div>
+</div>
 
 <div class="mt-5 grid grid-rows-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 gap-8">
 
@@ -42,16 +60,14 @@
                                                    type: "expense") %>
   </div>
 
-  <%
-    @data = [
-      {name: "Incomes", data: { "Incomes": (@report.total_incomes_currency) }},
-      {name: "Expenses", data: { "Expenses": (@report.total_expenses_currency) }}
-    ]
-  %>
   <div class="row-span-2 col-span-1 md:col-span-2 lg:col-start-1">
     <div class="chart-bg">
       <h2 class="chart-title">Expenses vs Incomes</h2>
-      <%= bar_chart @data, {stacked: true, thousands: ",", prefix: "$", round: 2, zeros: true }%>
+      <%= bar_chart [
+                      {name: "Incomes", data: { "Incomes": (@report.total_incomes_currency) }},
+                      {name: "Expenses", data: { "Expenses": (@report.total_expenses_currency) }}
+                    ],
+                    {stacked: true, thousands: ",", prefix: "$", round: 2, zeros: true }%>
     </div>
   </div>
 
@@ -71,8 +87,4 @@
     </div>
   </div>
 
-
 </div>
-
-<br>
-<br>
