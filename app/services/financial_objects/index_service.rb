@@ -9,7 +9,7 @@ module FinancialObjects
 
     def call
       current_class = load_financial_object_class(@type)
-      current_class.where(wallet_id: @user.wallet_id).includes(@include_objects)
+      current_class.where(wallet_id: @user.wallet_id).includes(@include_objects).order('date DESC')
     end
   end
 end
