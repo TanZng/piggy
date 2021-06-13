@@ -21,5 +21,6 @@
 module Categories
   class CategoryExpense < ApplicationRecord
     belongs_to :wallet, class_name: 'Users::Wallet'
+    has_many :expenses, class_name: 'FinancialObjects::Expense'
   end
 end

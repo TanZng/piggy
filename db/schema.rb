@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_05_27_033331) do
     t.string "title"
     t.string "color"
     t.string "icon"
-    t.date "date"
     t.bigint "wallet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_033331) do
 
   create_table "financial_objects_expenses", force: :cascade do |t|
     t.string "description"
-    t.decimal "currency"
+    t.decimal "currency", precision: 8, scale: 2
     t.bigint "category_id", null: false
     t.bigint "payment_method_id", null: false
     t.bigint "wallet_id", null: false
@@ -62,9 +61,10 @@ ActiveRecord::Schema.define(version: 2021_05_27_033331) do
 
   create_table "financial_objects_incomes", force: :cascade do |t|
     t.string "description"
-    t.decimal "currency"
+    t.decimal "currency", precision: 8, scale: 2
     t.bigint "category_id", null: false
     t.bigint "wallet_id", null: false
+    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_financial_objects_incomes_on_category_id"

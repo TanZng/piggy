@@ -3,7 +3,7 @@
 # Table name: financial_objects_expenses
 #
 #  id                :bigint           not null, primary key
-#  currency          :decimal(, )
+#  currency          :decimal(8, 2)
 #  date              :date
 #  description       :string
 #  created_at        :datetime         not null

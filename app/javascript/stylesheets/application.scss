@@ -1,0 +1,83 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+$nav-bar-background:bg-gray-50;
+
+::-webkit-calendar-picker-indicator {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+
+.chart-title{
+  @apply text-lg text-gray-700 dark:text-gray-200;
+}
+
+.item-bg{
+  @apply shadow-lg rounded-2xl p-5 bg-white dark:bg-blueGray-800;
+}
+
+.item-bg-color{
+  @apply bg-white dark:bg-blueGray-800;
+}
+
+.devise-button{
+  @apply w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blueGray-700 rounded-md hover:bg-blueGray-600 focus:outline-none focus:bg-blueGray-600
+}
+
+.form-title{
+  @apply block font-bold mb-1 text-gray-700 dark:text-gray-200;
+}
+
+.form-field{
+  @apply bg-white text-gray-600 border border-gray-300 rounded-xl focus:outline-none appearance-none border-transparent focus:border-gray-300 focus:ring-0;
+  @apply dark:bg-blueGray-800 dark:text-gray-200 dark:border-gray-700 z-50
+}
+
+.green-button{
+  @apply border-none bg-emerald-500 hover:bg-emerald-600 text-white text-center text-base focus:outline-none  rounded-xl
+}
+
+.bg-navbar{
+  @apply bg-gray-50 dark:bg-blueGray-800;
+}
+
+.nav-bar-button{
+  @apply px-4 py-2 block text-gray-700 bg-gray-50 dark:bg-blueGray-800 focus:outline-none;
+  @apply transition-colors duration-200 transform md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-coolGray-700 font-semibold;
+}
+
+.solo.nav-bar-button{
+  @apply rounded-md md:mt-0
+}
+
+.drop.nav-bar-button{
+  @apply rounded-t-xl rounded-b inline-flex items-center md:mt-0 whitespace-nowrap;
+}
+
+.top.nav-bar-button{
+  @apply rounded-t
+}
+
+.bot.nav-bar-button{
+  @apply rounded-b-xl
+}
+
+.disable{
+  @apply opacity-50 cursor-not-allowed bg-gray-300 dark:bg-coolGray-700;
+}
+
+.mobile-nav-bar-button{
+  @apply block px-6 dark:text-gray-200 text-gray-700 transition-colors duration-200 hover:bg-gray-300 dark:hover:bg-coolGray-700 rounded-md;
+}
+
+.mobile-nav-bar-title{
+  @apply dark:text-blueGray-400 text-gray-400 transition-colors duration-200 pt-1;
+}
+
+.mobile-nav-bar-line{
+  @apply dark:border-blueGray-600 border-gray-200 transition-colors duration-200 pb-1;
+}
+
+.nav-bar-logo{
+  @apply text-4xl font-bold text-gray-700 dark:text-gray-200 lg:text-3xl hover:text-rose-400 dark:hover:text-red-200;
+}

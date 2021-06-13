@@ -1,0 +1,6 @@
+<!-- component -->
+<%= @form.label @attribute_name , {}, { :class => "form-title" }%>
+<div class="relative text-gray-600">
+  <%= @form.text_field @attribute_name , { autocomplete: 'off',
+                                           class: "px-5 pr-4 form-field" }%>
+</div>

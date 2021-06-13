@@ -7,17 +7,17 @@
 
 <p>
   <strong>Currency:</strong>
-  <%= @financial_objects_expense.currency %>
+  <%= number_to_currency(@financial_objects_expense.currency) %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @financial_objects_expense.category_id %>
+  <%= @financial_objects_expense.category.title %>
 </p>
 
 <p>
   <strong>Payment method:</strong>
-  <%= @financial_objects_expense.payment_method_id %>
+  <%= @financial_objects_expense.payment_method.title %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @financial_objects_expense.date %>
+  <%= decorate(@financial_objects_expense.date).long %>
 </p>
 
 <%= link_to 'Edit', edit_financial_objects_expense_path(@financial_objects_expense) %> |

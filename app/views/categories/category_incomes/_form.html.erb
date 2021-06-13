@@ -12,21 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%#= form.label :title %>
+    <%#= form.text_field :title %>
+    <%= render(InputTextField::Component.new(form: form,
+                                             attribute_name: :title)) %>
   </div>
 
   <div class="field">
-    <%= form.label :color %>
-    <%= form.color_field :color, value: '#FFFFFF' %>
+    <%= render(InputTextField::Component.new(form: form,
+                                             attribute_name: :icon)) %>
   </div>
 
   <div class="field">
-    <%= form.label :icon %>
-    <%= form.text_field :icon %>
+    <%= render(ColorPicker::Component.new(klass: form.object_name,
+                                          form: form,
+                                          attribute_name: :color,
+                                          color: categories_category_income.color)) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= render(SubmitFormButton::Component.new(form: form)) %>
   </div>
 <% end %>

@@ -12,7 +12,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.x'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -24,8 +24,19 @@ gem 'jbuilder', '~> 2.7'
 #
 gem 'devise'
 
+# Non official https://heroicons.com/ for rails (https://github.com/bharget/heroicon)
+gem "heroicon"
+
 # Paginate
 gem 'pagy', '~> 4.7'
+# Charts
+gem 'chartkick', '~> 1.4'
+# group by day
+gem 'groupdate', '~> 5.2'
+
+# view components https://viewcomponent.org/
+gem 'view_component', require: 'view_component/engine'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -56,6 +67,8 @@ group :development do
   gem 'spring'
   # Add a comment summarizing the current schema of ActiveRecord models
   gem 'annotate'
+  # Loading seeds
+  gem "tty-spinner"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

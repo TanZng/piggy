@@ -1,0 +1,41 @@
+<!-- component -->
+<div class="group inline-block relative">
+  <button
+    class="drop nav-bar-button"
+  >
+    <span class="mr-1"><%= @title %></span>
+    <i class="fas fa-angle-down h-4 w-4"></i>
+
+  </button>
+  <!-- <ul class="absolute hidden text-gray-700 pt-1 group-hover:block"></ul> -->
+  <ul class="absolute w-full hidden text-gray-700 pt-1 text-left	group-hover:block">
+
+    <!-- First Link -->
+    <li class="">
+      <a
+        class="top nav-bar-button"
+        href="<%= @links.values[0] %>"
+      ><%= @links.keys[0] %></a
+      >
+    </li>
+
+    <!-- Middle Link(s) -->
+    <% (1..@n-1).each  do |index| %>
+      <li class="">
+        <a
+          class="nav-bar-button"
+          href="<%= @links.values[index] %>"
+        ><%= @links.keys[index] %></a
+        >
+      </li>
+    <% end %>
+
+    <!-- Last Link -->
+    <li class="">
+      <a
+        class="bot nav-bar-button"
+        href="<%= @links.values[@n] %>"
+      ><%= @links.keys[@n] %></a>
+    </li>
+  </ul>
+</div>

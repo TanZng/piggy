@@ -1,0 +1,6 @@
+<!-- component -->
+<%= @form.label @attribute_name, {}, { :class => "form-title" } if @title %>
+<div class="relative inline-flex">
+  <%= @form.select @attribute_name, @items, {},
+                  { :class=> "h-10 pl-5 pr-12 form-field" } %>
+</div>

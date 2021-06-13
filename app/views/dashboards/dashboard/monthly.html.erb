@@ -1,0 +1,90 @@
+
+<div class="mt-5 grid grid-cols-1 grid-rows-2 md:grid-cols-4">
+  <div class="row-start-1 md:col-span-2 ">
+    <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
+      <%= decorate(@month).month_name %>, <%= @year %>
+    </h1>
+  </div>
+
+  <div class="row-start-2 md:row-start-2 md:col-span-2 md:col-start-3 block-inline">
+
+      <%= form_with url: dashboards_monthly_path, method: :get do |form| %>
+      <div class="flex flex-row justify-center md:justify-end items-center">
+        <%#= form.label :month, "Choose a month:" %>
+        <div>
+          <%= form.month_field :month, class:"px-2 py-2 form-field", value: @month_and_year%>
+        </div>
+
+        <div class="pl-5">
+          <%= form.submit "Go!", class:"py-2 px-4 flex justify-center items-center text-white transition duration-500
+    ease-in-out bg-blue-400 hover:bg-blue-500 transform hover:translate-y-1 hover:scale-110  w-12 h-12 rounded-lg
+    hover:shadow-lg"%>
+        </div>
+
+      </div>
+      <% end %>
+
+  </div>
+</div>
+
+<div class="mt-5 grid grid-rows-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 gap-8">
+
+  <div class="row-span-1 col-span-1">
+  <%= render FinanceCard::ComponentComponent.new(title:"Incomes",
+                                                 currency:@report.total_incomes_currency,
+                                                 type: "income") %>
+  </div>
+
+    <div class="row-span-1 col-span-1">
+  <%= render FinanceCard::ComponentComponent.new(title:"Expenses",
+                                                 currency:@report.total_expenses_currency,
+                                                 type: "expense") %>
+    </div>
+
+  <div class="row-span-2 col-span-1 lg:col-start-3">
+    <div class="item-bg">
+      <h2 class="chart-title">Expenses by category</h2>
+      <%= pie_chart @report.expenses_currency_by_categories, { thousands: ",", prefix: "$", round: 2, zeros: true }  %>
+    </div>
+  </div>
+
+  <div class="row-start-3	md:row-start-2 row-span-1 col-span-1">
+    <%= render FinanceCard::ComponentComponent.new(title:"Incomes",
+                                                   currency:@report.total_incomes_currency,
+                                                   type: "income") %>
+  </div>
+
+  <div class="row-start-4 md:row-start-2 row-span-1 col-span-1">
+    <%= render FinanceCard::ComponentComponent.new(title:"Expenses",
+                                                   currency:@report.total_expenses_currency,
+                                                   type: "expense") %>
+  </div>
+
+  <div class="row-span-2 col-span-1 md:col-span-2 lg:col-start-1">
+    <div class="item-bg">
+      <h2 class="chart-title">Expenses vs Incomes</h2>
+      <%= bar_chart [
+                      {name: "Incomes", data: { "Incomes": (@report.total_incomes_currency) }},
+                      {name: "Expenses", data: { "Expenses": (@report.total_expenses_currency) }}
+                    ],
+                    {stacked: true, thousands: ",", prefix: "$", round: 2, zeros: true }%>
+    </div>
+  </div>
+
+  <div class="row-start-7 md:row-start-3 row-span-2 col-span-1 lg:col-start-3">
+    <div class="item-bg">
+      <h2 class="chart-title">Incomes by category</h2>
+      <%= pie_chart @report.incomes_currency_by_categories, { thousands: ",", prefix: "$", round: 2, zeros: true } %>
+    </div>
+  </div>
+
+
+  <%  @data1 = [{:name=>"Income",  :data=> @report.daily_income }, {:name=>"Expense",  :data=> @report.daily_expense }] %>
+  <div class="row-span-2 col-span-1 md:col-span-2 lg:col-span-3">
+    <div class="item-bg">
+      <h2 class="chart-title">Total Expenses and Incomes every day</h2>
+      <%= line_chart @data1, { thousands: ",", prefix: "$", round: 2, zeros: true }%>
+    </div>
+  </div>
+
+</div>

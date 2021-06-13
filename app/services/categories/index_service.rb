@@ -8,7 +8,7 @@ module Categories
 
     def call
       current_class = load_category_class(@type)
-      current_class.where(wallet_id: @user.wallet_id)
+      current_class.where(wallet_id: @user.wallet_id).order('created_at DESC')
     end
   end
 end

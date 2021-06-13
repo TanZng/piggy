@@ -1,0 +1,19 @@
+<%# > MobileMenuButton Component %>
+<button   type="button "
+          onclick="openMobileMenu()"
+          class="rounded-md  p-2 text-gray-400 focus:outline-none"
+          aria-controls="mobile-menu" aria-expanded="false">
+  <span class="sr-only">Open main menu</span>
+
+  <%# Icon when menu is closed, Menu open: "hidden", Menu closed: "block" %>
+  <%= heroicon "menu-alt-2",
+               options: {
+                 class: "hidden h-6 w-6 text-gray-700 dark:text-gray-200",
+                 id: "close-movil-menu-icon"} %>
+
+  <%# Icon when menu is open. Menu open: "block", Menu closed: "hidden" %>
+  <%= heroicon "menu",
+               options: {
+                 class: "block h-6 w-6 text-gray-700 dark:text-gray-200",
+                 id: "open-movil-menu-icon"} %>
+</button>

@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
+  <body class="bg-gray-100 dark:bg-blueGray-900">
+
+  <%= render NavBar::Component.new(user_logged: current_user) %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+  <div class="md:container md:mx-auto pt-5 px-10 lg:px-20">
     <%= yield %>
+  </div>
   </body>
 </html>

@@ -7,8 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-puts 'Run seed'
+spinners = TTY::Spinner::Multi.new('[:spinner] 🌱 Running seeds')
 
+sp1 = spinners.register '[:spinner] 💻 Registering Users'
+
+sp2 = spinners.register '[:spinner] 🥧 Baking Categories, Payments methods'
+
+sp3 = spinners.register '[:spinner] 💸 Winning and wasting money'
+
+sp1.auto_spin
 #
 # user 1
 #
@@ -22,43 +29,64 @@ user1.save
 #
 # user 2
 #
-user2 = Users::User.create(email: 'email@email.com', password: '123456', password_confirmation: '123456')
+user2 = Users::User.create(email: 'jitewaboh@lagify.com', password: '123456', password_confirmation: '123456')
 
 wallet2 = Users::Wallet.create(name: 'my wallet 2', user_id: user2.id)
 
 user2.wallet_id = wallet2.id
 user2.save
 
-30.times do
-  Categories::CategoryIncome.create(title: Faker::Company.name, color: Faker::Color.hex_color,
+require 'time'
+t1 = Date.parse('2020-01-1')
+t2 = Date.parse('2021-06-15')
+# puts rand(t1..t2)
+
+n = 5
+
+sp1.success
+
+sp2.auto_spin
+
+colors = ['bg-green-500', 'bg-red-500', 'bg-blue-500', 'bg-yellow-500', 'bg-teal-500', 'bg-indigo-500', 'bg-pink-500', 'bg-orange-500', 'bg-purple-500']
+n.times do
+  Categories::CategoryIncome.create(title: Faker::Company.name, color: colors.sample,
                                     icon: Faker::Creature::Animal.name, wallet_id: wallet1.id)
 
-  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: Faker::Color.hex_color,
+  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: colors.sample,
                                      icon: Faker::Creature::Animal.name, wallet_id: wallet1.id)
 
-  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type} #{Faker::Color.color_name}",
+  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type}-#{Faker::Color.color_name}",
                                          description: Faker::Bank.name, wallet_id: wallet1.id)
 
-  Categories::CategoryIncome.create(title: Faker::Company.name, color: Faker::Color.hex_color,
+  Categories::CategoryIncome.create(title: Faker::Company.name, color: colors.sample,
                                     icon: Faker::Creature::Animal.name, wallet_id: wallet2.id)
 
-  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: Faker::Color.hex_color,
+  Categories::CategoryExpense.create(title: Faker::Commerce.department(max: 1, fixed_amount: true), color: colors.sample,
                                      icon: Faker::Creature::Animal.name, wallet_id: wallet2.id)
 
-  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type} #{Faker::Color.color_name}",
+  FinancialObjects::PaymentMethod.create(title: "#{Faker::Business.credit_card_type}-#{Faker::Color.color_name}",
                                          description: Faker::Bank.name, wallet_id: wallet2.id)
 end
 
-60.times do
+sp2.success
+
+sp3.auto_spin
+
+550.times do
+  prng = Random.new
   FinancialObjects::Income.create(description: Faker::Company.industry, currency: Faker::Number.decimal(l_digits: 2),
-                                  category_id: rand(1..30), wallet_id: wallet1.id)
+                                  category_id: rand(1..n), wallet_id: wallet1.id, date: prng.rand(t1..t2))
 
-  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price, category_id: rand(1..30),
-                                   wallet_id: wallet1.id, payment_method_id: rand(1..30))
+  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price,
+                                   category_id: rand(1..n), wallet_id: wallet1.id, payment_method_id: rand(1..n),
+                                   date: rand(t1..t2))
 
   FinancialObjects::Income.create(description: Faker::Company.industry, currency: Faker::Number.decimal(l_digits: 2),
-                                  category_id: rand(1..30), wallet_id: wallet2.id)
+                                  category_id: rand(1..n), wallet_id: wallet2.id, date: prng.rand(t1..t2))
 
-  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price, category_id: rand(1..30),
-                                   wallet_id: wallet2.id, payment_method_id: rand(1..30))
+  FinancialObjects::Expense.create(description: Faker::Commerce.product_name, currency: Faker::Commerce.price,
+                                   category_id: rand(1..n), wallet_id: wallet2.id, payment_method_id: rand(1..n),
+                                   date: prng.rand(t1..t2))
 end
+
+sp3.success

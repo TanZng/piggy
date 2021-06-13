@@ -12,26 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= render(InputTextField::Component.new(form: form,
+                                             attribute_name: :description)) %>
   </div>
 
   <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
+    <%= render(InputMoneyField::Component.new(form: form,
+                                              attribute_name: :currency)) %>
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, decorate(current_user).my_categories_expenses %>
+    <%= render(SelectField::Component.new(form: form,
+                                         attribute_name: :category_id,
+                                          items: decorate(current_user).my_categories_incomes)) %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= render(DatePicker::Component.new(klass: form.object_name,
+                                         form: form,
+                                         attribute_name: :date,
+                                         date: financial_objects_income.date)) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= render(SubmitFormButton::Component.new(form: form)) %>
   </div>
 <% end %>
