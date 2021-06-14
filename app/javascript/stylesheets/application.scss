@@ -24,6 +24,10 @@ $nav-bar-background:bg-gray-50;
   @apply bg-white dark:bg-blueGray-800;
 }
 
+.text-color{
+  @apply text-gray-700 dark:text-gray-200;
+}
+
 .devise-button{
   @apply w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blueGray-700 rounded-md hover:bg-blueGray-600 focus:outline-none focus:bg-blueGray-600
 }

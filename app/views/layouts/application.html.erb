@@ -17,10 +17,17 @@
   <body class="bg-gray-100 dark:bg-blueGray-900">
 
   <%= render NavBar::Component.new(user_logged: current_user) %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
   <div class="md:container md:mx-auto pt-5 px-10 lg:px-20">
+
+    <div class="fixed inset-0 px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end">
+      <div class="flex flex-col items-end justify-center">
+        <% flash.each do |type, data| %>
+          <%= render Notification::Component.new(type: type, data: data) %>
+        <% end %>
+      </div>
+    </div>
+
     <%= yield %>
   </div>
   </body>

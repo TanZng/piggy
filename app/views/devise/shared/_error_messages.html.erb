@@ -1,15 +1,12 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
-                 count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
-       %>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+
+  <div class="fixed inset-0 px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end">
+    <div class="flex flex-col items-end justify-center">
+      <%= render Notification::Component.new(type: 'error', data: { title: I18n.t("errors.messages.not_saved",
+                                                                                  count: resource.errors.count,
+                                                                                  resource: resource.class.model_name.human.downcase),
+                                                                    list: resource.errors.full_messages }) %>
+    </div>
   </div>
+
 <% end %>
