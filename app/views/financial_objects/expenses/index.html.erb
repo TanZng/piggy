@@ -30,4 +30,4 @@
 <% end %>
 </div>
 
-<%== pagy_nav(@pagy) %>
+<%=render(Pagination::PagyComponent.new(pagy:@pagy)) %>

@@ -27,7 +27,7 @@ module Categories
 
       respond_to do |format|
         if @categories_category_income.valid?
-          format.html { redirect_to @categories_category_income, notice: 'Category income was successfully created.' }
+          format.html { redirect_to categories_category_incomes_path, notice: 'Category income was successfully created.' }
           format.json { render :show, status: :created, location: @categories_category_income }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ module Categories
 
       respond_to do |format|
         if updated_succeeds
-          format.html { redirect_to @categories_category_income, notice: 'Category income was successfully updated.' }
+          format.html { redirect_to categories_category_incomes_path, notice: 'Category income was successfully updated.' }
           format.json { render :show, status: :ok, location: @categories_category_income }
         else
           format.html { render :edit, status: :unprocessable_entity }

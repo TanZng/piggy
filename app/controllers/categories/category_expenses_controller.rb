@@ -27,7 +27,7 @@ module Categories
 
       respond_to do |format|
         if @categories_category_expense.save
-          format.html { redirect_to @categories_category_expense, notice: 'Category expense was successfully created.' }
+          format.html { redirect_to categories_category_expenses_path, notice: 'Category expense was successfully created.' }
           format.json { render :show, status: :created, location: @categories_category_expense }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ module Categories
 
       respond_to do |format|
         if updated_succeeds
-          format.html { redirect_to @categories_category_expense, notice: 'Category expense was successfully updated.' }
+          format.html { redirect_to categories_category_expenses_path, notice: 'Category expense was successfully updated.' }
           format.json { render :show, status: :ok, location: @categories_category_expense }
         else
           format.html { render :edit, status: :unprocessable_entity }

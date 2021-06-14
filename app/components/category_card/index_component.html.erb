@@ -1,0 +1,25 @@
+<div class="item-bg">
+  <div class="flex-col  flex justify-center items-center">
+
+    <div class="flex-shrink-0">
+      <%= render(Icon::CircularComponent.new(icon:@category.icon,
+                                             bg_color:@category.color)) %>
+    </div>
+
+    <div class="mt-2 text-center flex flex-col">
+              <span class="text-gray-600 dark:text-white text-lg font-medium">
+                  <%= @category.title %>
+              </span>
+      <span class="text-gray-400 text-xs">
+        <%= link_to edit_category do%>
+            <%= heroicon "pencil", options: { class: "mx-1 fill-current text-yellow-400 inline-block h-5 w-5",
+                                              height:"40"} %>
+          <% end %>
+        <%= link_to @category, method: :delete, data: { confirm: 'Are you sure?' } do%>
+            <%= heroicon "trash", options: { class: "mx-1 fill-current text-red-400 inline-block h-5 w-5",
+                                             height:"40"} %>
+          <% end %>
+      </span>
+    </div>
+  </div>
+</div>

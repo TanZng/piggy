@@ -12,7 +12,7 @@
     <div class="flex flex-row justify-center md:justify-end items-center">
 
       <div class="pl-5">
-        <%= link_to new_financial_objects_expense_path,
+        <%= link_to new_financial_objects_income_path,
                     class:"a-create-button" do %>
           + New Income
         <% end %>
@@ -29,6 +29,4 @@
   <% end %>
 </div>
 
-<%= link_to 'New Financial Objects Income', new_financial_objects_income_path %>
-
-<%== pagy_nav(@pagy) %>
+<%=render(Pagination::PagyComponent.new(pagy:@pagy)) %>

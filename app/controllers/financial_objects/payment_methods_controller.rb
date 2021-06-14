@@ -4,7 +4,7 @@ class FinancialObjects::PaymentMethodsController < ApplicationController
 
   # GET /financial_objects/payment_methods or /financial_objects/payment_methods.json
   def index
-    @financial_objects_payment_methods = FinancialObjects::PaymentMethod.all
+    @financial_objects_payment_methods = FinancialObjects::PaymentMethod.where(wallet_id: current_user.wallet_id)
   end
 
   # GET /financial_objects/payment_methods/1 or /financial_objects/payment_methods/1.json

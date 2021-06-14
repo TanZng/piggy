@@ -93,3 +93,50 @@ $nav-bar-background:bg-gray-50;
 .card-text-color{
   @apply text-gray-700 dark:text-gray-200
 }
+
+// Pagy / Pagination
+.pagy-nav,
+.pagy-nav-js,
+.pagy-combo-nav-js {
+  @apply inline-flex;
+}
+//.pagy-nav.pagination,
+//.pagy-nav-js.pagination,
+//.pagy-combo-nav-js.pagination {
+//  @apply border border-gray-600 rounded-sm;
+//}
+.pagy-nav .page,
+.pagy-nav-js .page,
+.pagy-combo-nav-js .page,
+.pagy-combo-nav-js .pagy-combo-input {
+  //@apply text-gray-700 border-r border-gray-600 px-3 py-2 text-sm leading-tight font-medium;
+  @apply flex items-center px-4 py-2 mx-1 text-gray-500 bg-white rounded-md dark:bg-blueGray-800 dark:text-gray-200;
+}
+.pagy-nav .page:hover,
+.pagy-nav-js .page:hover {
+  @apply text-blue-500 dark:text-blue-400;
+}
+.pagy-nav .disabled,
+.pagy-nav-js .disabled,
+.pagy-combo-nav-js .disabled {
+  @apply cursor-not-allowed disable;
+}
+.pagy-nav .gap,
+.pagy-nav-js .gap,
+.pagy-combo-nav-js .gap {
+  @apply disable;
+}
+.pagy-nav .active,
+.pagy-nav-js .active {
+  @apply text-blue-500 dark:text-blue-400 bg-gray-200 dark:bg-blueGray-600 font-bold;
+}
+.pagy-nav .prev,
+.pagy-nav-js .prev,
+.pagy-combo-nav-js .prev {
+  @apply text-gray-900;
+}
+.pagy-nav .next,
+.pagy-nav-js .next,
+.pagy-combo-nav-js .next {
+  @apply text-gray-900 border-r border-transparent;
+}

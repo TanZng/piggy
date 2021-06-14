@@ -49,7 +49,7 @@ sp2.auto_spin
 
 colors = ['bg-green-500', 'bg-red-500', 'bg-blue-500', 'bg-yellow-500', 'bg-teal-500', 'bg-indigo-500', 'bg-pink-500', 'bg-orange-500', 'bg-purple-500']
 icons_expense = ['fa-bus', 'fa-car', 'fa-headphones', 'fa-guitar', 'fa-ice-cream', 'fa-home', 'fa-faucet', 'fa-utensils']
-icons_incomes = ['fa-laptop', 'fa-youtube', 'fa-university', 'fa-building', 'fa-briefcase', 'fa-warehouse']
+icons_incomes = ['fa-laptop', 'fa-money-check-alt', 'fa-university', 'fa-building', 'fa-briefcase', 'fa-warehouse']
 
 n.times do
   Categories::CategoryIncome.create(title: Faker::Company.name, color: colors.sample,
