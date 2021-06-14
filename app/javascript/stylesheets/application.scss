@@ -12,6 +12,10 @@ $nav-bar-background:bg-gray-50;
   @apply text-lg text-gray-700 dark:text-gray-200;
 }
 
+.page-title{
+  @apply text-4xl font-semibold text-gray-800 dark:text-white;
+}
+
 .item-bg{
   @apply shadow-lg rounded-2xl p-5 bg-white dark:bg-blueGray-800;
 }
@@ -35,6 +39,10 @@ $nav-bar-background:bg-gray-50;
 
 .green-button{
   @apply border-none bg-emerald-500 hover:bg-emerald-600 text-white text-center text-base focus:outline-none  rounded-xl
+}
+
+.a-create-button{
+  @apply inline-flex items-center h-8 px-4 m-2 rounded-xl border-none bg-emerald-500 hover:bg-emerald-600 text-white focus:outline-none;
 }
 
 .bg-navbar{
@@ -80,4 +88,8 @@ $nav-bar-background:bg-gray-50;
 
 .nav-bar-logo{
   @apply text-4xl font-bold text-gray-700 dark:text-gray-200 lg:text-3xl hover:text-rose-400 dark:hover:text-red-200;
+}
+
+.card-text-color{
+  @apply text-gray-700 dark:text-gray-200
 }

@@ -1,0 +1,42 @@
+<div class="my-5">
+  <div class="item-bg">
+
+    <div class="text-right p-4">
+      <span class="text-xs card-text-color tracking-widest uppercase">
+        <%=decorate(@financial_object.date).short%>
+      </span>
+    </div>
+
+    <div class="flex items-center relative mb-10">
+      <div class="border-t border-gray-200 dark:border-gray-600 z-20 w-full"></div>
+      <div class="rounded-full <%=@financial_object.category.color%> z-30 p-2 inline-block absolute mx-8">
+        <div class="text-center	h-10 w-10">
+          <i class="fas <%= @financial_object.category.icon %> fill-current text-white dark:text-blueGray-200 text-center	inline-block text-3xl pt-0.5"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-8 pb-4">
+      <h2 class="card-text-color text-xl font-bold"><%= number_to_currency(@financial_object.currency)%></h2>
+      <p class="card-text-color text-xs">
+        <%=@financial_object.description %>
+      </p>
+    </div>
+
+    <div class="text-right p-2">
+      <%= link_to @financial_object do %>
+        <%= heroicon "eye", options: { class: "mx-1 fill-current text-blue-400 inline-block h-5 w-5",
+                                       height:"40"} %>
+      <% end %>
+      <%= link_to edit_financial_object do%>
+        <%= heroicon "pencil", options: { class: "mx-1 fill-current text-yellow-400 inline-block h-5 w-5",
+                                          height:"40"} %>
+      <% end %>
+      <%= link_to @financial_object, method: :delete, data: { confirm: 'Are you sure?' } do%>
+        <%= heroicon "trash", options: { class: "mx-1 fill-current text-red-400 inline-block h-5 w-5",
+                                         height:"40"} %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
