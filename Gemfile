@@ -69,6 +69,8 @@ group :development do
   gem 'annotate'
   # Loading seeds
   gem "tty-spinner"
+  # favicon in all devices
+  gem "rails_real_favicon"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
