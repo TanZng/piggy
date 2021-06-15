@@ -25,7 +25,7 @@
 #  fk_rails_...  (wallet_id => users_wallets.id)
 #
 module FinancialObjects
-  class Expense < ApplicationRecord
+  class Expense < FinancialObject
     belongs_to :category, class_name: 'Categories::CategoryExpense'
     belongs_to :payment_method, class_name: 'FinancialObjects::PaymentMethod'
     belongs_to :wallet, class_name: 'Users::Wallet'
