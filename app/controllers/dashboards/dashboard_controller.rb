@@ -2,6 +2,7 @@ module Dashboards
   class DashboardController < ApplicationController
     before_action :set_month_and_year, only: :monthly
     before_action :set_year, only: :annual
+    before_action :authenticate_user!
 
     def monthly
       @report = Dashboards::DashboardManager.new.show_monthly(current_user, @month, @year)
