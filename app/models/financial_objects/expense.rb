@@ -26,6 +26,7 @@
 #
 module FinancialObjects
   class Expense < FinancialObject
+    validates :description, presence: true
     belongs_to :category, class_name: 'Categories::CategoryExpense'
     belongs_to :payment_method, class_name: 'FinancialObjects::PaymentMethod'
     belongs_to :wallet, class_name: 'Users::Wallet'
