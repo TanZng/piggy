@@ -1,6 +1,19 @@
 # 🐖 Piggy 
 
-Piggy is a web applications to track your personal finances daily. You can view a monthly or annually resumeabout you expenses and incomes in some fancy Dashboards.
+Piggy is a web application to track your personal finances daily. You can view a monthly or annually resume about your expenses and incomes in some fancy Dashboards.
+
+Made with Ruby on Rails 6, TailwindCSS and PostgreSQL 13; using a five layers architecture
+
+- [Design Doc (only in spanish)](https://docs.google.com/document/d/1CsAxsfTQaVQw7lGRhoN8wpcP30h_W2_pfQ6FDscLqyc/edit?usp=sharing)
+- [✨ Features](https://github.com/TanZng/piggy#-features)
+  - [🌚🌞 Dark Mode and Light Mode, you choose](https://github.com/TanZng/piggy#-dark-mode-and-light-mode-you-choose)  
+  - [💻📱 Responsive Dashboard](https://github.com/TanZng/piggy#-responsive-dashboard)
+  - [📖💌  Pagination and Notifications](https://github.com/TanZng/piggy#--pagination-and-notifications)
+  - [📆🎨 Date and Color Picker](https://github.com/TanZng/piggy#-date-and-color-picker)
+- [👩‍💻 Development](https://github.com/TanZng/piggy#-development)
+  - [🐘 Only Postgres Docker Compose](https://github.com/TanZng/piggy#-only-postgres-docker-compose)
+  - [🐋 [WIP] Full docker-compose](https://github.com/TanZng/piggy#-wip-full-docker-compose)
+  - [🖌 Run TailwindCSS](https://github.com/TanZng/piggy#-run-tailwindcss)
 
 # ✨ Features
 
@@ -56,7 +69,7 @@ Run Docker
 docker run piggy 
 ```
 
-### Run TailwindCSS
+### 🖌 Run TailwindCSS
 ```bash
 yarn dev:server
 ```
